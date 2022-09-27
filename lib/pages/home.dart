@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ui';
 
 import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
@@ -35,81 +36,127 @@ class _HomeState extends State<Home> {
       body: Stack(
         children: [
           Positioned(
+              top: 150,
+              bottom: 0,
+              width: width,
               child: Column(
-            children: [
-              dbzData != null
-                  ? Expanded(
-                      child: GridView.builder(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2, childAspectRatio: 1.4),
-                          itemCount: dbzData.length,
-                          itemBuilder: (context, index) {
-                            var img = dbzData[index]['img'];
-                            var name = dbzData[index]['name'];
-                            return InkWell(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 6, horizontal: 10),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.amber,
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(30))),
-                                  child: Stack(
-                                    children: [
-                                      Positioned(
-                                        child: Center(
-                                          widthFactor: 1,
-                                          child: Container(
-                                            width: 130,
-                                            height: 130,
-                                            decoration: BoxDecoration(
+                children: [
+                  dbzData != null
+                      ? Expanded(
+                          child: GridView.builder(
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2, childAspectRatio: 1.4),
+                              itemCount: dbzData.length,
+                              itemBuilder: (context, index) {
+                                var id = dbzData[index]['id'];
+                                var img = dbzData[index]['img'];
+                                var name = dbzData[index]['name'];
+                                var species = dbzData[index]['species'];
+                                return InkWell(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 5, horizontal: 10),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.orange,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10)),
+                                      ),
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            top: 0,
+                                            right: 0,
+                                            child: Container(
+                                              width: 110,
+                                              height: 110,
+                                              decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(100),
-                                                border: Border.all(
+                                                /*border: Border.all(
                                                     color: Colors.white,
-                                                    width: 2)),
-                                            child: ClipOval(
-                                              child: CachedNetworkImage(
-                                                imageUrl: img,
-                                                fit: BoxFit.cover,
+                                                    width: 2)*/
+                                              ),
+                                              child: ClipOval(
+                                                child: CachedNetworkImage(
+                                                  imageUrl: img,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        bottom: 10,
-                                        left: width / 100 * 15,
-                                        child: Container(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 4,
-                                                bottom: 4,
-                                                left: 8,
-                                                right: 8),
-                                            child: Text(name.toString()),
+                                          Positioned(
+                                            bottom: 8,
+                                            left: 15,
+                                            child: Text(
+                                              name.toString(),
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20),
+                                            ),
                                           ),
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                Radius.circular(20),
+                                          Positioned(
+                                            bottom: 35,
+                                            left: 15,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(20)),
+                                                  color: Colors.white),
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 4,
+                                                    bottom: 4,
+                                                    right: 8,
+                                                    left: 8),
+                                                child: Text(
+                                                  species,
+                                                  style:
+                                                      TextStyle(fontSize: 12),
+                                                ),
                                               ),
-                                              color: Colors.white),
-                                        ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 20,
+                                            left: 15,
+                                            child: Container(
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                50)),
+                                                    color: Colors.red),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 4,
+                                                          bottom: 4,
+                                                          right: 8,
+                                                          left: 8),
+                                                  child: Text(
+                                                    id.toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 12,
+                                                        color: Colors.white),
+                                                  ),
+                                                )),
+                                          )
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                              ),
-                            );
-                          }),
-                    )
-                  : Center(
-                      child: CircularProgressIndicator(),
-                    )
-            ],
-          ))
+                                );
+                              }),
+                        )
+                      : Center(
+                          child: CircularProgressIndicator(),
+                        )
+                ],
+              ))
         ],
       ),
     );
