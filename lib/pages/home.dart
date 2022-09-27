@@ -36,6 +36,22 @@ class _HomeState extends State<Home> {
       body: Stack(
         children: [
           Positioned(
+            top: 30,
+            left: 30,
+            child: Image.asset(
+              'assets/images/logo.png',
+              width: 250,
+            ),
+          ),
+          Positioned(
+            child: Center(
+              child: Image.asset(
+                'assets/images/esferasdragon.png',
+                width: 400,
+              ),
+            ),
+          ),
+          Positioned(
               top: 150,
               bottom: 0,
               width: width,
@@ -46,7 +62,7 @@ class _HomeState extends State<Home> {
                           child: GridView.builder(
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2, childAspectRatio: 1.4),
+                                      crossAxisCount: 2, childAspectRatio: 1.1),
                               itemCount: dbzData.length,
                               itemBuilder: (context, index) {
                                 var id = dbzData[index]['id'];
@@ -59,18 +75,32 @@ class _HomeState extends State<Home> {
                                         vertical: 5, horizontal: 10),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: Colors.orange,
+                                        color: Color.fromARGB(255, 231, 110, 3),
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
                                       child: Stack(
                                         children: [
                                           Positioned(
+                                            bottom: -20,
+                                            right: -35,
+                                            child: Image.asset(
+                                              species == 'Humano'
+                                                  ? 'assets/images/radar.png'
+                                                  : 'assets/images/rastraedor.png',
+                                              height: 150,
+                                              color:
+                                                  Colors.white.withOpacity(.5),
+                                              colorBlendMode:
+                                                  BlendMode.modulate,
+                                            ),
+                                          ),
+                                          Positioned(
                                             top: 0,
                                             right: 0,
                                             child: Container(
-                                              width: 110,
-                                              height: 110,
+                                              width: 140,
+                                              height: 140,
                                               decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(100),
@@ -88,7 +118,7 @@ class _HomeState extends State<Home> {
                                           ),
                                           Positioned(
                                             bottom: 8,
-                                            left: 15,
+                                            left: 12,
                                             child: Text(
                                               name.toString(),
                                               style: TextStyle(
@@ -99,13 +129,14 @@ class _HomeState extends State<Home> {
                                           ),
                                           Positioned(
                                             bottom: 35,
-                                            left: 15,
+                                            left: 12,
                                             child: Container(
                                               decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.all(
                                                           Radius.circular(20)),
-                                                  color: Colors.white),
+                                                  color: Colors.white
+                                                      .withOpacity(.5)),
                                               child: Padding(
                                                 padding: const EdgeInsets.only(
                                                     top: 4,
@@ -122,7 +153,7 @@ class _HomeState extends State<Home> {
                                           ),
                                           Positioned(
                                             top: 20,
-                                            left: 15,
+                                            left: 12,
                                             child: Container(
                                                 decoration: BoxDecoration(
                                                     borderRadius:
