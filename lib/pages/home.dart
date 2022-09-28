@@ -60,130 +60,74 @@ class _HomeState extends State<Home> {
                   dbzData != null
                       ? Expanded(
                           child: GridView.builder(
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2, childAspectRatio: 1.1),
-                              itemCount: dbzData.length,
-                              itemBuilder: (context, index) {
-                                var id = dbzData[index]['id'];
-                                var img = dbzData[index]['img'];
-                                var name = dbzData[index]['name'];
-                                var species = dbzData[index]['species'];
-                                return InkWell(
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 5, horizontal: 10),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: Color.fromARGB(255, 231, 110, 3),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10)),
-                                      ),
-                                      child: Stack(
-                                        children: [
-                                          Positioned(
-                                            bottom: -20,
-                                            right: -35,
-                                            child: Image.asset(
-                                              species == 'Humano'
-                                                  ? 'assets/images/radar.png'
-                                                  : species == 'Sayajin'
-                                                      ? 'assets/images/rastraedor.png'
-                                                      : 'assets/images/nave_freezer.png',
-                                              height: 150,
-                                              color:
-                                                  Colors.white.withOpacity(.5),
-                                              colorBlendMode:
-                                                  BlendMode.modulate,
-                                            ),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2, childAspectRatio: 1.1),
+                            itemCount: dbzData.length,
+                            itemBuilder: (context, index) {
+                              var id = dbzData[index]['id'];
+                              var img = dbzData[index]['img'];
+                              var name = dbzData[index]['name'];
+                              var species = dbzData[index]['species'];
+                              var saga = dbzData[index]['saga'];
+                              return InkWell(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 10),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 231, 110, 3),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        /* ====== Img Fondo ===== */
+                                        Positioned(
+                                          bottom: -20,
+                                          right: -35,
+                                          child: Image.asset(
+                                            species == 'Humano'
+                                                ? 'assets/images/nave.png'
+                                                : species == 'Sayajin'
+                                                    ? 'assets/images/nave_saiyajin.png'
+                                                    : 'assets/images/navespc_frizer.png',
+                                            height: 150,
+                                            color: Colors.white.withOpacity(.4),
+                                            colorBlendMode: BlendMode.modulate,
                                           ),
-                                          Positioned(
-                                            top: 0,
-                                            right: 0,
-                                            child: Container(
-                                              width: 140,
-                                              height: 140,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(100),
-                                                /*border: Border.all(
-                                                    color: Colors.white,
-                                                    width: 2)*/
-                                              ),
-                                              child: ClipOval(
-                                                child: CachedNetworkImage(
-                                                  imageUrl: img,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            bottom: 8,
-                                            left: 12,
-                                            child: Text(
-                                              name.toString(),
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 20),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            bottom: 35,
-                                            left: 12,
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(20)),
-                                                  color: Colors.white
-                                                      .withOpacity(.5)),
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 4,
-                                                    bottom: 4,
-                                                    right: 8,
-                                                    left: 8),
-                                                child: Text(
-                                                  species,
-                                                  style:
-                                                      TextStyle(fontSize: 12),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            top: 20,
-                                            left: 12,
-                                            child: Container(
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                50)),
-                                                    color: Colors.red),
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 4,
-                                                          bottom: 4,
-                                                          right: 8,
-                                                          left: 8),
-                                                  child: Text(
-                                                    id.toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 12,
-                                                        color: Colors.white),
-                                                  ),
-                                                )),
-                                          )
-                                        ],
-                                      ),
+                                        ),
+                                        /* ====== IMG PERSONAGES ====== */
+                                        imgPersonages(img),
+                                        /* ====== Name ===== */
+                                        namePersonages(name),
+                                        /* ====== Spaces ===== */
+                                        Positioned(
+                                          top: 40,
+                                          left: 12,
+                                          child: moreDataPersonages(species,
+                                              Colors.black, Colors.white),
+                                        ),
+                                        const Positioned(
+                                          bottom: 40,
+                                          left: 12,
+                                          child: Text("Saga:"),
+                                        ),
+                                        Positioned(
+                                          bottom: 10,
+                                          left: 12,
+                                          child: moreDataPersonages(
+                                              saga, Colors.white, Colors.black),
+                                        ),
+                                        /* ====== Id ===== */
+                                        idPersonages(id),
+                                      ],
                                     ),
                                   ),
-                                );
-                              }),
+                                ),
+                              );
+                            },
+                          ),
                         )
                       : Center(
                           child: CircularProgressIndicator(),
@@ -191,6 +135,72 @@ class _HomeState extends State<Home> {
                 ],
               ))
         ],
+      ),
+    );
+  }
+
+  Container moreDataPersonages(text, colorText, colorDecor) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          color: colorDecor.withOpacity(.5)),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 4, bottom: 4, right: 8, left: 8),
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 12, color: colorText),
+        ),
+      ),
+    );
+  }
+
+  Positioned idPersonages(id) {
+    return Positioned(
+      top: 10,
+      left: 12,
+      child: Container(
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            color: Colors.red),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 4, bottom: 4, right: 8, left: 8),
+          child: Text(
+            id.toString(),
+            style: const TextStyle(fontSize: 12, color: Colors.white),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Positioned namePersonages(name) {
+    return Positioned(
+      top: 10,
+      right: 12,
+      child: Text(
+        name.toString(),
+        style: const TextStyle(
+            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+      ),
+    );
+  }
+
+  Positioned imgPersonages(img) {
+    return Positioned(
+      bottom: 0,
+      right: 0,
+      child: Container(
+        width: 135,
+        height: 135,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+        ),
+        child: ClipOval(
+          child: CachedNetworkImage(
+            imageUrl: img,
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }
