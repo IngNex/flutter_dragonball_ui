@@ -87,7 +87,9 @@ class _HomeState extends State<Home> {
                                             child: Image.asset(
                                               species == 'Humano'
                                                   ? 'assets/images/radar.png'
-                                                  : 'assets/images/rastraedor.png',
+                                                  : species == 'Sayajin'
+                                                      ? 'assets/images/rastraedor.png'
+                                                      : 'assets/images/nave_freezer.png',
                                               height: 150,
                                               color:
                                                   Colors.white.withOpacity(.5),
