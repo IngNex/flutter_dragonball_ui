@@ -44,10 +44,22 @@ class _HomeState extends State<Home> {
             ),
           ),
           Positioned(
+            top: 10,
+            right: 5,
+            child: Image.asset(
+              'assets/images/radar.png',
+              width: 120,
+              color: Colors.white.withOpacity(.3),
+              colorBlendMode: BlendMode.modulate,
+            ),
+          ),
+          Positioned(
             child: Center(
               child: Image.asset(
                 'assets/images/esferasdragon.png',
                 width: 400,
+                color: Colors.white.withOpacity(.6),
+                colorBlendMode: BlendMode.modulate,
               ),
             ),
           ),
@@ -84,15 +96,20 @@ class _HomeState extends State<Home> {
                                       children: [
                                         /* ====== Img Fondo ===== */
                                         Positioned(
-                                          bottom: -20,
-                                          right: -35,
+                                          bottom: -10,
+                                          right: -20,
                                           child: Image.asset(
-                                            species == 'Humano'
+                                            species == 'Humano' ||
+                                                    species == 'Hibrido'
                                                 ? 'assets/images/nave.png'
-                                                : species == 'Sayajin'
+                                                : species == 'Sayajin' ||
+                                                        species == 'Saibamen'
                                                     ? 'assets/images/nave_saiyajin.png'
-                                                    : 'assets/images/navespc_frizer.png',
-                                            height: 150,
+                                                    : species == 'Freeza' ||
+                                                            species == 'Alien'
+                                                        ? 'assets/images/navespc_frizer.png'
+                                                        : 'assets/images/nave_namek.png',
+                                            height: 120,
                                             color: Colors.white.withOpacity(.4),
                                             colorBlendMode: BlendMode.modulate,
                                           ),
