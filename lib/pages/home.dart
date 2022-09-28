@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:ui';
 
+import 'package:flutter_dragonball/pages/personages_details.dart';
 import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -87,11 +88,8 @@ class _HomeState extends State<Home> {
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 5, horizontal: 10),
                                   child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Color.fromARGB(255, 231, 110, 3),
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
-                                    ),
+                                    decoration:
+                                        decorationCardPersonage(species),
                                     child: Stack(
                                       children: [
                                         /* ====== Img Fondo ===== */
@@ -142,6 +140,34 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => PersonagesDetails(
+                                        personageDetail: dbzData[index],
+                                        color: species == 'Sayajin'
+                                            ? Colors.orange
+                                            : species == 'Humano'
+                                                ? Colors.grey
+                                                : species == 'Hibrido'
+                                                    ? Colors.blue
+                                                    : species == 'Nameku' ||
+                                                            species ==
+                                                                'Saibamen'
+                                                        ? Colors.green
+                                                        : species == 'Alien'
+                                                            ? Colors.teal
+                                                            : species ==
+                                                                    'Freeza'
+                                                                ? Colors
+                                                                    .deepPurple
+                                                                : Colors.red,
+                                        indexTag: index,
+                                      ),
+                                    ),
+                                  );
+                                },
                               );
                             },
                           ),
@@ -153,6 +179,25 @@ class _HomeState extends State<Home> {
               ))
         ],
       ),
+    );
+  }
+
+  BoxDecoration decorationCardPersonage(species) {
+    return BoxDecoration(
+      color: species == 'Sayajin'
+          ? Colors.orange
+          : species == 'Humano'
+              ? Colors.grey
+              : species == 'Hibrido'
+                  ? Colors.blue
+                  : species == 'Nameku' || species == 'Saibamen'
+                      ? Colors.green
+                      : species == 'Alien'
+                          ? Colors.teal
+                          : species == 'Freeza'
+                              ? Colors.deepPurple
+                              : Colors.red,
+      borderRadius: BorderRadius.all(Radius.circular(10)),
     );
   }
 
