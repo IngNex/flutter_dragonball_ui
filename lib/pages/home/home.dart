@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:ui';
 
-import 'package:flutter_dragonball/pages/personge/personages_details.dart';
+import 'package:flutter_dragonball/pages/personage/personages_details.dart';
 import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
 
