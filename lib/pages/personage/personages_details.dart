@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dragonball/pages/personage/components/ImgPersonage.dart';
+import 'package:flutter_dragonball/pages/personage/components/InfoImgPersonage.dart';
 import 'package:flutter_dragonball/pages/personage/components/InfoPersonageContainer.dart';
 
 class PersonagesDetails extends StatefulWidget {
@@ -22,45 +23,16 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     var species = widget.personageDetail['species'];
+    var saga = widget.personageDetail['saga'];
     var img = widget.personageDetail['img'];
+    var name = widget.personageDetail['name'];
     var color = widget.color;
     return Scaffold(
       body: Column(children: [
         Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: SizedBox(
-                height: size.height * .65,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 60),
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: IconButton(
-                                padding: EdgeInsets.symmetric(horizontal: 20),
-                                icon: Icon(Icons.arrow_back),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ),
-                            Spacer(),
-                            infoPersonagesContainer(
-                                color: color, species: species),
-                          ],
-                        ),
-                      ),
-                    ),
-                    imgPersonage(color: color, img: img)
-                  ],
-                ),
-              ),
-            )
+            InfoImgPersonage(
+                color: color, species: species, saga: saga, img: img)
           ],
         )
       ]),
