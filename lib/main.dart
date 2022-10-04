@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dragonball/pages/home.dart';
+import 'package:flutter_dragonball/pages/home/home.dart';
 
 void main() {
   runApp(const MyApp());
