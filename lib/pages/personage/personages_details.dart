@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dragonball/pages/personage/components/DataPersonageName.dart';
 import 'package:flutter_dragonball/pages/personage/components/ImgPersonage.dart';
 import 'package:flutter_dragonball/pages/personage/components/InfoImgPersonage.dart';
 import 'package:flutter_dragonball/pages/personage/components/InfoPersonageContainer.dart';
@@ -32,7 +33,8 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
         Column(
           children: [
             InfoImgPersonage(
-                color: color, species: species, saga: saga, img: img)
+                color: color, species: species, saga: saga, img: img),
+            dataPersonageName(widget: widget, color: color)
           ],
         )
       ]),
