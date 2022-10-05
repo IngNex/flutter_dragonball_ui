@@ -35,23 +35,47 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
             InfoImgPersonage(
                 color: color, species: species, saga: saga, img: img),
             dataPersonageName(widget: widget, color: color),
+            dataPersonageName(widget: widget, color: color),
             Row(
               children: [
                 SizedBox(
-                    width: size.width / 2,
-                    height: 84,
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        backgroundColor: color,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(50),
-                          ),
+                  width: size.width / 2,
+                  height: 84,
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: color,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(50),
                         ),
                       ),
-                      onPressed: () {},
-                      child: Text('Hola'),
-                    ))
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      name,
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: size.width / 2,
+                  height: 84,
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(50),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      name,
+                      style: TextStyle(color: color, fontSize: 25),
+                    ),
+                  ),
+                ),
               ],
             )
           ],
