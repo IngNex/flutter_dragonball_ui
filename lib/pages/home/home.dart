@@ -149,7 +149,7 @@ class _HomeState extends State<Home> {
                                         color: species == 'Sayajin'
                                             ? Colors.orange
                                             : species == 'Humano'
-                                                ? Colors.grey
+                                                ? Colors.blueGrey
                                                 : species == 'Hibrido'
                                                     ? Colors.blue
                                                     : species == 'Nameku' ||
@@ -187,7 +187,7 @@ class _HomeState extends State<Home> {
       color: species == 'Sayajin'
           ? Colors.orange
           : species == 'Humano'
-              ? Colors.grey
+              ? Colors.blueGrey
               : species == 'Hibrido'
                   ? Colors.blue
                   : species == 'Nameku' || species == 'Saibamen'
