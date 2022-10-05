@@ -34,7 +34,26 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
           children: [
             InfoImgPersonage(
                 color: color, species: species, saga: saga, img: img),
-            dataPersonageName(widget: widget, color: color)
+            dataPersonageName(widget: widget, color: color),
+            Row(
+              children: [
+                SizedBox(
+                    width: size.width / 2,
+                    height: 84,
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: color,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(50),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text('Hola'),
+                    ))
+              ],
+            )
           ],
         )
       ]),

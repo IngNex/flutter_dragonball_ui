@@ -22,7 +22,7 @@ class InfoImgPersonage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: SizedBox(
-        height: size.height * .65,
+        height: size.height * .7,
         child: Row(
           children: [
             Expanded(
