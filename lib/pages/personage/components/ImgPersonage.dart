@@ -15,8 +15,8 @@ class imgPersonage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.7,
-      width: size.width * 0.65,
+      height: size.height * 0.75,
+      width: size.width * 0.7,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(60),

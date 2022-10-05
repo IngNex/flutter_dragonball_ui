@@ -35,7 +35,6 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
             InfoImgPersonage(
                 color: color, species: species, saga: saga, img: img),
             dataPersonageName(widget: widget, color: color),
-            dataPersonageName(widget: widget, color: color),
             Row(
               children: [
                 SizedBox(

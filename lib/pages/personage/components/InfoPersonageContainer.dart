@@ -14,10 +14,10 @@ class infoPersonagesContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: size.height * .03),
+      margin: EdgeInsets.symmetric(vertical: size.height * .02),
       padding: EdgeInsets.all(5),
       height: 60,
-      width: 100,
+      width: 80,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(

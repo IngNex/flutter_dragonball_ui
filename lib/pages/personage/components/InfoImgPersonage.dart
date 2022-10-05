@@ -22,7 +22,8 @@ class InfoImgPersonage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: SizedBox(
-        height: size.height * .7,
+        height: size.height * .75,
+        /* influye en la img */
         child: Row(
           children: [
             Expanded(
@@ -42,6 +43,7 @@ class InfoImgPersonage extends StatelessWidget {
                     ),
                     Spacer(),
                     infoPersonagesContainer(color: color, species: saga),
+                    infoPersonagesContainer(color: color, species: species),
                     infoPersonagesContainer(color: color, species: species),
                     infoPersonagesContainer(color: color, species: species),
                   ],
