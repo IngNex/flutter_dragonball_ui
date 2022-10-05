@@ -20,7 +20,7 @@ class InfoImgPersonage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.only(bottom: 10),
       child: SizedBox(
         height: size.height * .75,
         /* influye en la img */

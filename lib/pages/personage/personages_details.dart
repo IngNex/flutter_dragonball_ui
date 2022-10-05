@@ -39,7 +39,7 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
               children: [
                 SizedBox(
                   width: size.width / 2,
-                  height: 84,
+                  height: 70,
                   child: TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: color,
@@ -58,7 +58,7 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
                 ),
                 SizedBox(
                   width: size.width / 2,
-                  height: 84,
+                  height: 70,
                   child: TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.white,

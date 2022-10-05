@@ -14,32 +14,42 @@ class dataPersonageName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-      child: Row(
+      padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
+      child: Column(
         children: [
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "${widget.personageDetail['name']}\n",
-                  style: TextStyle(
-                      color: color, fontWeight: FontWeight.bold, fontSize: 30),
+          Row(
+            children: [
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "${widget.personageDetail['name']}\n",
+                      style: TextStyle(
+                          color: color,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                    ),
+                    TextSpan(
+                      text: 'Raza: ${widget.personageDetail['species']}',
+                      style: TextStyle(
+                        color: color,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
                 ),
-                TextSpan(
-                  text: 'Raza: ${widget.personageDetail['species']}',
-                  style: TextStyle(
-                    color: color,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
-            ),
+              ),
+              Spacer(),
+              Text(
+                'Saga: ${widget.personageDetail['saga']}',
+                style: TextStyle(color: Colors.black, fontSize: 20),
+              ),
+            ],
           ),
-          Spacer(),
           Text(
-            'Saga: ${widget.personageDetail['saga']}',
-            style: TextStyle(color: Colors.black, fontSize: 20),
+            'Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos',
+            style: TextStyle(color: Colors.black, fontSize: 12),
           ),
         ],
       ),
