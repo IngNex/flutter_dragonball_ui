@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dragonball/pages/personage/components/ButtonMore.dart';
 import 'package:flutter_dragonball/pages/personage/components/DataPersonageName.dart';
 import 'package:flutter_dragonball/pages/personage/components/ImgPersonage.dart';
 import 'package:flutter_dragonball/pages/personage/components/InfoImgPersonage.dart';
@@ -35,48 +36,7 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
             InfoImgPersonage(
                 color: color, species: species, saga: saga, img: img),
             dataPersonageName(widget: widget, color: color),
-            Row(
-              children: [
-                SizedBox(
-                  width: size.width / 2,
-                  height: 70,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: color,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(50),
-                        ),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      widget.personageDetail['name'],
-                      style: TextStyle(color: Colors.white, fontSize: 25),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: size.width / 2,
-                  height: 70,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                        ),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      widget.personageDetail['name'],
-                      style: TextStyle(color: color, fontSize: 25),
-                    ),
-                  ),
-                ),
-              ],
-            )
+            ButtonMore(color: color, widget: widget)
           ],
         )
       ]),
