@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dragonball/pages/personage/personages_details.dart';
 
 class infoPersonagesContainer extends StatelessWidget {
   const infoPersonagesContainer({
     Key? key,
     required this.color,
     required this.species,
+    required this.widget,
   }) : super(key: key);
 
   final Color color;
   final String species;
+  final PersonagesDetails widget;
 
   @override
   Widget build(BuildContext context) {

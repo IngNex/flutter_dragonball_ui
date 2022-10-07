@@ -34,7 +34,12 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
         Column(
           children: [
             InfoImgPersonage(
-                color: color, species: species, saga: saga, img: img),
+              color: color,
+              species: species,
+              saga: saga,
+              img: img,
+              widget: widget,
+            ),
             dataPersonageName(widget: widget, color: color),
             ButtonMore(color: color, widget: widget)
           ],
