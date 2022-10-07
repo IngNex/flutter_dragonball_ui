@@ -7,11 +7,13 @@ class SinConexion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Data Json Sin conexión a Internet",
-        style: TextStyle(
-            color: Colors.amber, fontWeight: FontWeight.bold, fontSize: 40),
+    return Expanded(
+      child: Center(
+        child: Text(
+          "Data Json Sin conexión a Internet",
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 40),
+        ),
       ),
     );
   }

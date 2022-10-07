@@ -51,7 +51,7 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
                     ),
                     onPressed: () {},
                     child: Text(
-                      name,
+                      widget.personageDetail['name'],
                       style: TextStyle(color: Colors.white, fontSize: 25),
                     ),
                   ),
@@ -70,7 +70,7 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
                     ),
                     onPressed: () {},
                     child: Text(
-                      name,
+                      widget.personageDetail['name'],
                       style: TextStyle(color: color, fontSize: 25),
                     ),
                   ),

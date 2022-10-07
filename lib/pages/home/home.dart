@@ -173,7 +173,7 @@ class _HomeState extends State<Home> {
                             },
                           ),
                         )
-                      : SinConexion()
+                      : SinConexion(),
                 ],
               ))
         ],
