@@ -6,12 +6,10 @@ class infoPersonagesContainer extends StatelessWidget {
     Key? key,
     required this.color,
     required this.species,
-    required this.widget,
   }) : super(key: key);
 
   final Color color;
   final String species;
-  final PersonagesDetails widget;
 
   @override
   Widget build(BuildContext context) {

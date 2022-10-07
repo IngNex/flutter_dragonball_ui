@@ -46,13 +46,15 @@ class InfoImgPersonage extends StatelessWidget {
                     ),
                     Spacer(),
                     infoPersonagesContainer(
-                        color: color, species: saga, widget: widget),
+                        color: color, species: widget.personageDetail['saga']),
                     infoPersonagesContainer(
-                        color: color, species: species, widget: widget),
+                        color: color,
+                        species: widget.personageDetail['species']),
                     infoPersonagesContainer(
-                        color: color, species: species, widget: widget),
+                        color: color, species: widget.personageDetail['saga']),
                     infoPersonagesContainer(
-                        color: color, species: species, widget: widget),
+                        color: color,
+                        species: widget.personageDetail['species']),
                   ],
                 ),
               ),
