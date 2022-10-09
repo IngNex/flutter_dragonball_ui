@@ -89,8 +89,26 @@ class _HomeState extends State<Home> {
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 5, horizontal: 10),
                                   child: Container(
-                                    decoration:
-                                        decorationCardPersonage(species),
+                                    decoration: BoxDecoration(
+                                      color: species == 'Sayajin'
+                                          ? Colors.orange
+                                          : species == 'Humano'
+                                              ? Colors.blueGrey
+                                              : species == 'Hibrido'
+                                                  ? Colors.blue
+                                                  : species == 'Nameku' ||
+                                                          species == 'Saibamen'
+                                                      ? Colors.green
+                                                      : species == 'Alien'
+                                                          ? Colors.teal
+                                                          : species == 'Freeza'
+                                                              ? Colors
+                                                                  .deepPurple
+                                                              : Colors.red,
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(10),
+                                      ),
+                                    ),
                                     child: Stack(
                                       children: [
                                         /* ====== Img Fondo ===== */
@@ -114,15 +132,61 @@ class _HomeState extends State<Home> {
                                           ),
                                         ),
                                         /* ====== IMG PERSONAGES ====== */
-                                        imgPersonages(img),
+                                        Positioned(
+                                          bottom: 0,
+                                          right: 0,
+                                          child: Container(
+                                            width: 135,
+                                            height: 135,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(100),
+                                            ),
+                                            child: ClipOval(
+                                              child: CachedNetworkImage(
+                                                imageUrl: img,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                         /* ====== Name ===== */
-                                        namePersonages(name),
+                                        Positioned(
+                                          top: 10,
+                                          right: 12,
+                                          child: Text(
+                                            name.toString(),
+                                            style: const TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20),
+                                          ),
+                                        ),
                                         /* ====== Spaces ===== */
                                         Positioned(
                                           top: 40,
                                           left: 12,
-                                          child: moreDataPersonages(species,
-                                              Colors.black, Colors.white),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                        Radius.circular(20)),
+                                                color: Colors.black
+                                                    .withOpacity(.5)),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 4,
+                                                  bottom: 4,
+                                                  right: 8,
+                                                  left: 8),
+                                              child: Text(
+                                                species,
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                         const Positioned(
                                           bottom: 40,
@@ -132,8 +196,27 @@ class _HomeState extends State<Home> {
                                         Positioned(
                                           bottom: 10,
                                           left: 12,
-                                          child: moreDataPersonages(
-                                              saga, Colors.white, Colors.black),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                        Radius.circular(20)),
+                                                color: Colors.white
+                                                    .withOpacity(.5)),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 4,
+                                                  bottom: 4,
+                                                  right: 8,
+                                                  left: 8),
+                                              child: Text(
+                                                saga,
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                         /* ====== Id ===== */
                                         Positioned(
@@ -151,7 +234,7 @@ class _HomeState extends State<Home> {
                                                   right: 8,
                                                   left: 8),
                                               child: Text(
-                                                id.toString(),
+                                                dbzData[index]['id'].toString(),
                                                 style: const TextStyle(
                                                     fontSize: 12,
                                                     color: Colors.white),
@@ -199,91 +282,6 @@ class _HomeState extends State<Home> {
                 ],
               ))
         ],
-      ),
-    );
-  }
-
-  BoxDecoration decorationCardPersonage(species) {
-    return BoxDecoration(
-      color: species == 'Sayajin'
-          ? Colors.orange
-          : species == 'Humano'
-              ? Colors.blueGrey
-              : species == 'Hibrido'
-                  ? Colors.blue
-                  : species == 'Nameku' || species == 'Saibamen'
-                      ? Colors.green
-                      : species == 'Alien'
-                          ? Colors.teal
-                          : species == 'Freeza'
-                              ? Colors.deepPurple
-                              : Colors.red,
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-    );
-  }
-
-  Container moreDataPersonages(text, colorText, colorDecor) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          color: colorDecor.withOpacity(.5)),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 4, bottom: 4, right: 8, left: 8),
-        child: Text(
-          text,
-          style: TextStyle(fontSize: 12, color: colorText),
-        ),
-      ),
-    );
-  }
-
-  Positioned idPersonages(id) {
-    return Positioned(
-      top: 10,
-      left: 12,
-      child: Container(
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(50)),
-            color: Colors.red),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 4, bottom: 4, right: 8, left: 8),
-          child: Text(
-            id.toString(),
-            style: const TextStyle(fontSize: 12, color: Colors.white),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Positioned namePersonages(name) {
-    return Positioned(
-      top: 10,
-      right: 12,
-      child: Text(
-        name.toString(),
-        style: const TextStyle(
-            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
-      ),
-    );
-  }
-
-  Positioned imgPersonages(img) {
-    return Positioned(
-      bottom: 0,
-      right: 0,
-      child: Container(
-        width: 135,
-        height: 135,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-        ),
-        child: ClipOval(
-          child: CachedNetworkImage(
-            imageUrl: img,
-            fit: BoxFit.cover,
-          ),
-        ),
       ),
     );
   }
