@@ -136,7 +136,29 @@ class _HomeState extends State<Home> {
                                               saga, Colors.white, Colors.black),
                                         ),
                                         /* ====== Id ===== */
-                                        idPersonages(id),
+                                        Positioned(
+                                          top: 10,
+                                          left: 12,
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(50)),
+                                                color: Colors.red),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 4,
+                                                  bottom: 4,
+                                                  right: 8,
+                                                  left: 8),
+                                              child: Text(
+                                                id.toString(),
+                                                style: const TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
