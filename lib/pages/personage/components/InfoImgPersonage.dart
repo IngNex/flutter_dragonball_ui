@@ -40,15 +40,19 @@ class InfoImgPersonage extends StatelessWidget {
                     ),
                     Spacer(),
                     infoPersonagesContainer(
-                        color: color, species: widget.personageDetail['saga']),
+                        color: color,
+                        species: "Altura:\n${widget.personageDetail['saga']}"),
                     infoPersonagesContainer(
                         color: color,
-                        species: widget.personageDetail['species']),
-                    infoPersonagesContainer(
-                        color: color, species: widget.personageDetail['saga']),
+                        species: "Peso:\n${widget.personageDetail['species']}"),
                     infoPersonagesContainer(
                         color: color,
-                        species: widget.personageDetail['species']),
+                        species:
+                            "Poder:\n${widget.personageDetail['species']}"),
+                    infoPersonagesContainer(
+                        color: color,
+                        species:
+                            "Sexo: :\n${widget.personageDetail['species']}"),
                   ],
                 ),
               ),

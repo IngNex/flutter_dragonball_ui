@@ -33,7 +33,7 @@ class infoPersonagesContainer extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          species,
+          '$species',
         ),
       ),
     );
