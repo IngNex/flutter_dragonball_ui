@@ -18,7 +18,7 @@ class ButtonMore extends StatelessWidget {
       children: [
         SizedBox(
           width: size.width / 2,
-          height: 70,
+          height: 55,
           child: TextButton(
             style: TextButton.styleFrom(
               backgroundColor: color,
@@ -37,7 +37,7 @@ class ButtonMore extends StatelessWidget {
         ),
         SizedBox(
           width: size.width / 2,
-          height: 70,
+          height: 55,
           child: TextButton(
             style: TextButton.styleFrom(
               backgroundColor: Colors.white,

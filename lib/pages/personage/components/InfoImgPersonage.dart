@@ -7,16 +7,10 @@ class InfoImgPersonage extends StatelessWidget {
   const InfoImgPersonage({
     Key? key,
     required this.color,
-    required this.species,
-    required this.img,
-    required this.saga,
     required this.widget,
   }) : super(key: key);
 
   final Color color;
-  final String species;
-  final String saga;
-  final String img;
   final PersonagesDetails widget;
 
   @override
@@ -59,7 +53,7 @@ class InfoImgPersonage extends StatelessWidget {
                 ),
               ),
             ),
-            imgPersonage(color: color, img: img)
+            imgPersonage(color: color, img: widget.personageDetail['img'])
           ],
         ),
       ),

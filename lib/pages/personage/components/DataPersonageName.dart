@@ -47,11 +47,13 @@ class dataPersonageName extends StatelessWidget {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Text(
-              'Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos',
-              style: TextStyle(color: Colors.black, fontSize: 12),
+          Container(
+            height: 58,
+            child: Center(
+              child: Text(
+                'Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos',
+                style: TextStyle(color: Colors.black, fontSize: 12),
+              ),
             ),
           ),
         ],
