@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter_dragonball/pages/home/components/SinConexion.dart';
+import 'package:flutter_dragonball/pages/home/components/imgRadar.dart';
+import 'package:flutter_dragonball/pages/home/components/imgTitleLogo.dart';
 import 'package:flutter_dragonball/pages/personage/personages_details.dart';
 import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
@@ -37,25 +39,9 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: Stack(
         children: [
-          Positioned(
-            top: 30,
-            left: 30,
-            child: Image.asset(
-              'assets/images/logo.png',
-              width: 250,
-            ),
-          ),
-          Positioned(
-            top: 10,
-            right: 5,
-            child: Image.asset(
-              'assets/images/radar.png',
-              width: 120,
-              color: Colors.white.withOpacity(.3),
-              colorBlendMode: BlendMode.modulate,
-            ),
-          ),
-          Positioned(
+          imgTituloLogo(),
+          imgRadar(),
+          /*Positioned(
             child: Center(
               child: Image.asset(
                 'assets/images/esferasdragon.png',
@@ -64,7 +50,7 @@ class _HomeState extends State<Home> {
                 colorBlendMode: BlendMode.modulate,
               ),
             ),
-          ),
+          ),*/
           Positioned(
               top: 150,
               bottom: 0,
