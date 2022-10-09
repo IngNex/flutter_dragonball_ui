@@ -1,3 +1,6 @@
+import 'dart:html';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_dragonball/pages/personage/personages_details.dart';
 
@@ -52,7 +55,12 @@ class dataPersonageName extends StatelessWidget {
             child: Center(
               child: Text(
                 'Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos',
-                style: TextStyle(color: Colors.black, fontSize: 12),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontStyle: FontStyle.italic,
+                ),
+                textAlign: TextAlign.justify,
               ),
             ),
           ),
