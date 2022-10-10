@@ -88,16 +88,7 @@ class _HomeState extends State<Home> {
                                           bottom: -10,
                                           right: -20,
                                           child: Image.asset(
-                                            species == 'Humano' ||
-                                                    species == 'Hibrido'
-                                                ? 'assets/images/nave.png'
-                                                : species == 'Sayajin' ||
-                                                        species == 'Saibamen'
-                                                    ? 'assets/images/nave_saiyajin.png'
-                                                    : species == 'Freeza' ||
-                                                            species == 'Alien'
-                                                        ? 'assets/images/navespc_frizer.png'
-                                                        : 'assets/images/nave_namek.png',
+                                            getImage(species),
                                             height: 120,
                                             color: Colors.white.withOpacity(.4),
                                             colorBlendMode: BlendMode.modulate,
@@ -199,7 +190,7 @@ class _HomeState extends State<Home> {
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(50)),
                                               color:
-                                                  Colors.black.withOpacity(.2),
+                                                  Colors.white.withOpacity(.5),
                                             ),
                                             child: Padding(
                                               padding: const EdgeInsets.only(
@@ -211,7 +202,7 @@ class _HomeState extends State<Home> {
                                                 dbzData[index]['id'].toString(),
                                                 style: const TextStyle(
                                                     fontSize: 12,
-                                                    color: Colors.white,
+                                                    color: Colors.black,
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),
@@ -228,23 +219,7 @@ class _HomeState extends State<Home> {
                                     MaterialPageRoute(
                                       builder: (_) => PersonagesDetails(
                                         personageDetail: dbzData[index],
-                                        color: species == 'Sayajin'
-                                            ? Colors.orange
-                                            : species == 'Humano'
-                                                ? Colors.blueGrey
-                                                : species == 'Hibrido'
-                                                    ? Colors.blue
-                                                    : species == 'Nameku' ||
-                                                            species ==
-                                                                'Saibamen'
-                                                        ? Colors.green
-                                                        : species == 'Alien'
-                                                            ? Colors.teal
-                                                            : species ==
-                                                                    'Freeza'
-                                                                ? Colors
-                                                                    .deepPurple
-                                                                : Colors.red,
+                                        color: ObtenerColor(species),
                                         indexTag: index,
                                       ),
                                     ),
@@ -262,22 +237,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Color ObtenerColor(species) {
-    return species == 'Sayajin'
-        ? Colors.orange
-        : species == 'Humano'
-            ? Colors.blueGrey
-            : species == 'Hibrido'
-                ? Colors.blue
-                : species == 'Nameku' || species == 'Saibamen'
-                    ? Colors.green
-                    : species == 'Alien'
-                        ? Colors.teal
-                        : species == 'Freeza'
-                            ? Colors.deepPurple
-                            : Colors.red;
-  }
-
+  /* ================== Get - API ==================== */
   void fetchDadronBallData() async {
     var url = Uri.https(
         "raw.githubusercontent.com",
@@ -295,5 +255,33 @@ class _HomeState extends State<Home> {
       }*/
       setState(() {});
     }
+  }
+
+  /* ============== Obtener Color de species ================ */
+  Color ObtenerColor(species) {
+    return species == 'Sayajin'
+        ? Colors.orange
+        : species == 'Humano'
+            ? Colors.blueGrey
+            : species == 'Hibrido'
+                ? Colors.blue
+                : species == 'Nameku' || species == 'Saibamen'
+                    ? Colors.green
+                    : species == 'Alien'
+                        ? Colors.teal
+                        : species == 'Freeza'
+                            ? Colors.deepPurple
+                            : Colors.red;
+  }
+
+  /* ============== Obtener Color de species ================ */
+  String getImage(species) {
+    return species == 'Humano' || species == 'Hibrido'
+        ? 'assets/images/nave.png'
+        : species == 'Sayajin' || species == 'Saibamen'
+            ? 'assets/images/nave_saiyajin.png'
+            : species == 'Freeza' || species == 'Alien'
+                ? 'assets/images/navespc_frizer.png'
+                : 'assets/images/nave_namek.png';
   }
 }
