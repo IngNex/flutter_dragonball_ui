@@ -76,21 +76,7 @@ class _HomeState extends State<Home> {
                                       vertical: 5, horizontal: 10),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: species == 'Sayajin'
-                                          ? Colors.orange
-                                          : species == 'Humano'
-                                              ? Colors.blueGrey
-                                              : species == 'Hibrido'
-                                                  ? Colors.blue
-                                                  : species == 'Nameku' ||
-                                                          species == 'Saibamen'
-                                                      ? Colors.green
-                                                      : species == 'Alien'
-                                                          ? Colors.teal
-                                                          : species == 'Freeza'
-                                                              ? Colors
-                                                                  .deepPurple
-                                                              : Colors.red,
+                                      color: ObtenerColor(species),
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(10),
                                       ),
@@ -274,6 +260,22 @@ class _HomeState extends State<Home> {
         ],
       ),
     );
+  }
+
+  Color ObtenerColor(species) {
+    return species == 'Sayajin'
+        ? Colors.orange
+        : species == 'Humano'
+            ? Colors.blueGrey
+            : species == 'Hibrido'
+                ? Colors.blue
+                : species == 'Nameku' || species == 'Saibamen'
+                    ? Colors.green
+                    : species == 'Alien'
+                        ? Colors.teal
+                        : species == 'Freeza'
+                            ? Colors.deepPurple
+                            : Colors.red;
   }
 
   void fetchDadronBallData() async {
