@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:ui';
 
+import 'package:flutter_dragonball/pages/home/components/IdText.dart';
 import 'package:flutter_dragonball/pages/home/components/SinConexion.dart';
 import 'package:flutter_dragonball/pages/home/components/imgRadar.dart';
 import 'package:flutter_dragonball/pages/home/components/imgTitleLogo.dart';
@@ -76,7 +77,7 @@ class _HomeState extends State<Home> {
                                       vertical: 5, horizontal: 10),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: ObtenerColor(species),
+                                      color: getColor(species),
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(10),
                                       ),
@@ -122,7 +123,7 @@ class _HomeState extends State<Home> {
                                             style: const TextStyle(
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 20),
+                                                fontSize: 18),
                                           ),
                                         ),
                                         /* ====== Spaces ===== */
@@ -152,9 +153,12 @@ class _HomeState extends State<Home> {
                                           ),
                                         ),
                                         const Positioned(
-                                          bottom: 40,
-                                          left: 12,
-                                          child: Text("Saga:"),
+                                          bottom: 35,
+                                          left: 18,
+                                          child: Text(
+                                            "Saga:",
+                                            style: TextStyle(fontSize: 13),
+                                          ),
                                         ),
                                         Positioned(
                                           bottom: 10,
@@ -182,33 +186,8 @@ class _HomeState extends State<Home> {
                                           ),
                                         ),
                                         /* ====== Id ===== */
-                                        Positioned(
-                                          top: 10,
-                                          left: 12,
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(50)),
-                                              color:
-                                                  Colors.white.withOpacity(.5),
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 4,
-                                                  bottom: 4,
-                                                  right: 8,
-                                                  left: 8),
-                                              child: Text(
-                                                dbzData[index]['id'].toString(),
-                                                style: const TextStyle(
-                                                    fontSize: 12,
-                                                    color: Colors.black,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
+                                        DetailDataPersonage(
+                                            textinfo: id.toString()),
                                       ],
                                     ),
                                   ),
@@ -219,7 +198,7 @@ class _HomeState extends State<Home> {
                                     MaterialPageRoute(
                                       builder: (_) => PersonagesDetails(
                                         personageDetail: dbzData[index],
-                                        color: ObtenerColor(species),
+                                        color: getColor(species),
                                         indexTag: index,
                                       ),
                                     ),
@@ -258,7 +237,7 @@ class _HomeState extends State<Home> {
   }
 
   /* ============== Obtener Color de species ================ */
-  Color ObtenerColor(species) {
+  Color getColor(species) {
     return species == 'Sayajin'
         ? Colors.orange
         : species == 'Humano'
