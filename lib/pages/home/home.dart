@@ -209,10 +209,12 @@ class _HomeState extends State<Home> {
                                           top: 10,
                                           left: 12,
                                           child: Container(
-                                            decoration: const BoxDecoration(
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(50)),
-                                                color: Colors.red),
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(50)),
+                                              color:
+                                                  Colors.black.withOpacity(.2),
+                                            ),
                                             child: Padding(
                                               padding: const EdgeInsets.only(
                                                   top: 4,
@@ -223,7 +225,9 @@ class _HomeState extends State<Home> {
                                                 dbzData[index]['id'].toString(),
                                                 style: const TextStyle(
                                                     fontSize: 12,
-                                                    color: Colors.white),
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                             ),
                                           ),
