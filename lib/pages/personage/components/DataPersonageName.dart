@@ -30,7 +30,7 @@ class dataPersonageName extends StatelessWidget {
                           fontSize: 30),
                     ),
                     TextSpan(
-                      text: 'Raza: ${widget.personageDetail['species']}',
+                      text: "raza: ${widget.personageDetail['species']}",
                       style: TextStyle(
                         color: color,
                         fontWeight: FontWeight.w500,
@@ -42,7 +42,7 @@ class dataPersonageName extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                'Saga: ${widget.personageDetail['saga']}',
+                "Planeta: ${widget.personageDetail['planet']}",
                 style: TextStyle(color: Colors.black, fontSize: 20),
               ),
             ],

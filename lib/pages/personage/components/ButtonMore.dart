@@ -29,9 +29,18 @@ class ButtonMore extends StatelessWidget {
               ),
             ),
             onPressed: () {},
-            child: Text(
-              widget.personageDetail['transformation'],
-              style: TextStyle(color: Colors.white, fontSize: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Saga: ',
+                  style: TextStyle(color: Colors.black, fontSize: 12),
+                ),
+                Text(
+                  widget.personageDetail['saga'],
+                  style: TextStyle(color: Colors.white, fontSize: 24),
+                ),
+              ],
             ),
           ),
         ),
@@ -48,9 +57,18 @@ class ButtonMore extends StatelessWidget {
               ),
             ),
             onPressed: () {},
-            child: Text(
-              'More',
-              style: TextStyle(color: color, fontSize: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Evo: ',
+                  style: TextStyle(color: Colors.black, fontSize: 12),
+                ),
+                Text(
+                  widget.personageDetail['transformation'],
+                  style: TextStyle(color: color, fontSize: 24),
+                ),
+              ],
             ),
           ),
         ),

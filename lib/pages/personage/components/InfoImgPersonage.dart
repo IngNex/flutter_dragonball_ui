@@ -42,15 +42,14 @@ class InfoImgPersonage extends StatelessWidget {
                     Spacer(),
                     infoPersonagesContainer(
                         color: color,
+                        species: "Poder:\n${widget.personageDetail['power']}"),
+                    infoPersonagesContainer(
+                        color: color,
                         species:
                             "Altura:\n${widget.personageDetail['height']}"),
                     infoPersonagesContainer(
                         color: color,
                         species: "Peso:\n${widget.personageDetail['weight']}"),
-                    infoPersonagesContainer(
-                        color: color,
-                        species:
-                            "Poder:\n${widget.personageDetail['species']}"),
                     infoPersonagesContainer(color: color, species: gender),
                   ],
                 ),
