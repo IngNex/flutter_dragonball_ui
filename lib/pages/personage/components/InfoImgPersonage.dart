@@ -16,6 +16,7 @@ class InfoImgPersonage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    var gender = widget.personageDetail['gender'];
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: SizedBox(
@@ -41,18 +42,16 @@ class InfoImgPersonage extends StatelessWidget {
                     Spacer(),
                     infoPersonagesContainer(
                         color: color,
-                        species: "Altura:\n${widget.personageDetail['saga']}"),
+                        species:
+                            "Altura:\n${widget.personageDetail['height']}"),
                     infoPersonagesContainer(
                         color: color,
-                        species: "Peso:\n${widget.personageDetail['species']}"),
+                        species: "Peso:\n${widget.personageDetail['weight']}"),
                     infoPersonagesContainer(
                         color: color,
                         species:
                             "Poder:\n${widget.personageDetail['species']}"),
-                    infoPersonagesContainer(
-                        color: color,
-                        species:
-                            "Sexo: :\n${widget.personageDetail['species']}"),
+                    infoPersonagesContainer(color: color, species: gender),
                   ],
                 ),
               ),

@@ -30,7 +30,7 @@ class ButtonMore extends StatelessWidget {
             ),
             onPressed: () {},
             child: Text(
-              widget.personageDetail['name'],
+              widget.personageDetail['transformation'],
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
           ),
@@ -49,7 +49,7 @@ class ButtonMore extends StatelessWidget {
             ),
             onPressed: () {},
             child: Text(
-              widget.personageDetail['name'],
+              'More',
               style: TextStyle(color: color, fontSize: 25),
             ),
           ),
