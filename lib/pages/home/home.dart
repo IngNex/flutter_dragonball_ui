@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:flutter_dragonball/pages/home/components/IdText.dart';
 import 'package:flutter_dragonball/pages/home/components/SinConexion.dart';
@@ -250,7 +249,11 @@ class _HomeState extends State<Home> {
                         ? Colors.teal
                         : species == 'Freeza'
                             ? Colors.deepPurple
-                            : Colors.red;
+                            : species == 'Androide'
+                                ? Colors.cyan
+                                : species == 'Bioandroid'
+                                    ? Colors.red
+                                    : Colors.black45;
   }
 
   /* ============== Obtener Color de species ================ */
