@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_dragonball/color/MaterialColor.dart';
 import 'package:flutter_dragonball/pages/home/components/IdText.dart';
 import 'package:flutter_dragonball/pages/home/components/SinConexion.dart';
 import 'package:flutter_dragonball/pages/home/components/imgRadar.dart';
@@ -237,33 +238,55 @@ class _HomeState extends State<Home> {
 
   /* ============== Obtener Color de species ================ */
   Color getColor(species) {
-    return species == 'Sayajin'
-        ? Colors.orange
-        : species == 'Humano'
-            ? Colors.blueGrey
-            : species == 'Hibrido'
-                ? Colors.blue
-                : species == 'Nameku' || species == 'Saibamen'
-                    ? Colors.green
-                    : species == 'Alien'
-                        ? Colors.teal
-                        : species == 'Freeza'
-                            ? Colors.deepPurple
-                            : species == 'Androide'
-                                ? Colors.cyan
-                                : species == 'Bioandroid'
-                                    ? Colors.red
-                                    : Colors.black45;
+    Color colorImg = Colors.white;
+    if (species == 'Sayajin') {
+      colorImg = MaterialColors.orange;
+    }
+    if (species == 'Humano') {
+      colorImg = MaterialColors.blueGrey;
+    }
+    if (species == 'Hibrido') {
+      colorImg = MaterialColors.blueAccent3;
+    }
+    if (species == 'Alien') {
+      colorImg = MaterialColors.teal;
+    }
+    if (species == 'Nameku' || species == 'Saibamen') {
+      colorImg = MaterialColors.green;
+    }
+    if (species == 'Freeza') {
+      colorImg = MaterialColors.deepPurple;
+    }
+    if (species == 'Androide') {
+      colorImg = MaterialColors.cyan;
+    }
+    if (species == 'Bioandroid') {
+      colorImg = MaterialColors.redAccent4;
+    }
+    if (species == 'Kioshin') {
+      colorImg = MaterialColors.lightBlueLighten1;
+    }
+    if (species == 'Demonio') {
+      colorImg = MaterialColors.pinkAccent3;
+    }
+
+    return colorImg;
   }
 
   /* ============== Obtener Color de species ================ */
   String getImage(species) {
-    return species == 'Humano' || species == 'Hibrido'
-        ? 'assets/images/nave.png'
-        : species == 'Sayajin' || species == 'Saibamen'
-            ? 'assets/images/nave_saiyajin.png'
-            : species == 'Freeza' || species == 'Alien'
-                ? 'assets/images/navespc_frizer.png'
-                : 'assets/images/nave_namek.png';
+    String imgSpecies = 'assets/images/nave_namek.png';
+
+    if (species == 'Humano' || species == 'Hibrido') {
+      imgSpecies = 'assets/images/nave.png';
+    }
+    if (species == 'Sayajin' || species == 'Saibamen') {
+      imgSpecies = 'assets/images/nave_saiyajin.png';
+    }
+    if (species == 'Freeza' || species == 'Alien') {
+      imgSpecies = 'assets/images/navespc_frizer.png';
+    }
+
+    return imgSpecies;
   }
 }
