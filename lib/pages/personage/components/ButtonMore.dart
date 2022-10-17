@@ -27,6 +27,7 @@ class ButtonMore extends StatelessWidget {
                   topRight: Radius.circular(50),
                 ),
               ),
+              foregroundColor: Colors.white,
             ),
             onPressed: () {},
             child: Row(
@@ -55,6 +56,7 @@ class ButtonMore extends StatelessWidget {
                   topLeft: Radius.circular(50),
                 ),
               ),
+              foregroundColor: color,
             ),
             onPressed: () {},
             child: Row(

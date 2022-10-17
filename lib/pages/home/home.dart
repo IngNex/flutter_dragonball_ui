@@ -107,7 +107,7 @@ class _HomeState extends State<Home> {
                                                 BorderRadius.circular(100),
                                           ),
                                           child: ClipOval(
-                                            child: img.toString().length == null
+                                            child: img.toString().length == 0
                                                 ? SinConexion()
                                                 : CachedNetworkImage(
                                                     imageUrl: img,
