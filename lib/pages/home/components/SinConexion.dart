@@ -16,7 +16,7 @@ class _SinConexionState extends State<SinConexion>
   void initState() {
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: 2),
     )..addListener(() {
         setState(() {});
       });
@@ -36,6 +36,7 @@ class _SinConexionState extends State<SinConexion>
       child: CircularProgressIndicator(
         value: controller.value,
         semanticsLabel: 'Connection failure',
+        color: Colors.black,
       ),
     );
   }

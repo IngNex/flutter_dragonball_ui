@@ -52,165 +52,168 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),*/
-          Positioned(
-              top: 150,
-              bottom: 0,
-              width: width,
-              child: Column(
-                children: [
-                  dbzData != null
-                      ? Expanded(
-                          child: GridView.builder(
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2, childAspectRatio: 1.1),
-                            itemCount: dbzData.length,
-                            itemBuilder: (context, index) {
-                              var id = dbzData[index]['id'];
-                              var img = dbzData[index]['img'];
-                              var name = dbzData[index]['name'];
-                              var species = dbzData[index]['species'];
-                              var saga = dbzData[index]['saga'];
-                              return InkWell(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 5, horizontal: 10),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: getColor(species),
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(10),
-                                      ),
-                                    ),
-                                    child: Stack(
-                                      children: [
-                                        /* ====== Img Fondo ===== */
-                                        Positioned(
-                                          bottom: -10,
-                                          right: -20,
-                                          child: Image.asset(
-                                            getImage(species),
-                                            height: 120,
-                                            color: Colors.white.withOpacity(.4),
-                                            colorBlendMode: BlendMode.modulate,
-                                          ),
-                                        ),
-                                        /* ====== IMG PERSONAGES ====== */
-                                        Positioned(
-                                          bottom: 0,
-                                          right: 0,
-                                          child: Container(
-                                            width: 135,
-                                            height: 135,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(100),
-                                            ),
-                                            child: ClipOval(
-                                              child: CachedNetworkImage(
-                                                imageUrl: img,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        /* ====== Name ===== */
-                                        Positioned(
-                                          top: 10,
-                                          right: 12,
-                                          child: Text(
-                                            name.toString(),
-                                            style: const TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18),
-                                          ),
-                                        ),
-                                        /* ====== Spaces ===== */
-                                        Positioned(
-                                          top: 40,
-                                          left: 12,
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                        Radius.circular(20)),
-                                                color: Colors.black
-                                                    .withOpacity(.5)),
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 4,
-                                                  bottom: 4,
-                                                  right: 8,
-                                                  left: 8),
-                                              child: Text(
-                                                species,
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        const Positioned(
-                                          bottom: 35,
-                                          left: 18,
-                                          child: Text(
-                                            "Saga:",
-                                            style: TextStyle(fontSize: 13),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          bottom: 10,
-                                          left: 12,
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                        Radius.circular(20)),
-                                                color: Colors.white
-                                                    .withOpacity(.5)),
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 4,
-                                                  bottom: 4,
-                                                  right: 8,
-                                                  left: 8),
-                                              child: Text(
-                                                saga,
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Colors.black),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        /* ====== Id ===== */
-                                        DetailDataPersonage(
-                                            textinfo: id.toString()),
-                                      ],
+          dbzData.length != 0
+              ? Positioned(
+                  top: 150,
+                  bottom: 0,
+                  width: width,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: GridView.builder(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2, childAspectRatio: 1.1),
+                          itemCount: dbzData.length,
+                          itemBuilder: (context, index) {
+                            var id = dbzData[index]['id'];
+                            var img = dbzData[index]['img'];
+                            var name = dbzData[index]['name'];
+                            var species = dbzData[index]['species'];
+                            var saga = dbzData[index]['saga'];
+                            return InkWell(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 5, horizontal: 10),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: getColor(species),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
                                     ),
                                   ),
-                                ),
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (_) => PersonagesDetails(
-                                        personageDetail: dbzData[index],
-                                        color: getColor(species),
-                                        indexTag: index,
+                                  child: Stack(
+                                    children: [
+                                      /* ====== Img Fondo ===== */
+                                      Positioned(
+                                        bottom: -10,
+                                        right: -20,
+                                        child: Image.asset(
+                                          getImage(species),
+                                          height: 120,
+                                          color: Colors.white.withOpacity(.4),
+                                          colorBlendMode: BlendMode.modulate,
+                                        ),
                                       ),
+                                      /* ====== IMG PERSONAGES ====== */
+                                      Positioned(
+                                        bottom: 0,
+                                        right: 0,
+                                        child: Container(
+                                          width: 135,
+                                          height: 135,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(100),
+                                          ),
+                                          child: ClipOval(
+                                            child: img.toString().length == null
+                                                ? SinConexion()
+                                                : CachedNetworkImage(
+                                                    imageUrl: img,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                          ),
+                                        ),
+                                      ),
+                                      /* ====== Name ===== */
+                                      Positioned(
+                                        top: 10,
+                                        right: 12,
+                                        child: Text(
+                                          name.toString(),
+                                          style: const TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18),
+                                        ),
+                                      ),
+                                      /* ====== Spaces ===== */
+                                      Positioned(
+                                        top: 40,
+                                        left: 12,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                      Radius.circular(20)),
+                                              color:
+                                                  Colors.black.withOpacity(.5)),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                top: 4,
+                                                bottom: 4,
+                                                right: 8,
+                                                left: 8),
+                                            child: Text(
+                                              species,
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      const Positioned(
+                                        bottom: 35,
+                                        left: 18,
+                                        child: Text(
+                                          "Saga:",
+                                          style: TextStyle(fontSize: 13),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        bottom: 10,
+                                        left: 12,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                      Radius.circular(20)),
+                                              color:
+                                                  Colors.white.withOpacity(.5)),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                top: 4,
+                                                bottom: 4,
+                                                right: 8,
+                                                left: 8),
+                                            child: Text(
+                                              saga,
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.black),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      /* ====== Id ===== */
+                                      DetailDataPersonage(
+                                          textinfo: id.toString()),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => PersonagesDetails(
+                                      personageDetail: dbzData[index],
+                                      color: getColor(species),
+                                      indexTag: index,
                                     ),
-                                  );
-                                },
-                              );
-                            },
-                          ),
-                        )
-                      : SinConexion(),
-                ],
-              ))
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              : SinConexion(),
         ],
       ),
     );
@@ -243,7 +246,7 @@ class _HomeState extends State<Home> {
       colorImg = MaterialColors.orange;
     }
     if (species == 'Humano') {
-      colorImg = MaterialColors.blueGrey;
+      colorImg = MaterialColors.blueGreyLighten1;
     }
     if (species == 'Hibrido') {
       colorImg = MaterialColors.blueAccent3;
@@ -255,7 +258,7 @@ class _HomeState extends State<Home> {
       colorImg = MaterialColors.green;
     }
     if (species == 'Freeza') {
-      colorImg = MaterialColors.deepPurple;
+      colorImg = MaterialColors.deepPurpleAccent3;
     }
     if (species == 'Androide') {
       colorImg = MaterialColors.cyan;
