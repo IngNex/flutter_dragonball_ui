@@ -18,21 +18,51 @@ class imgPersonage extends StatelessWidget {
       height: size.height * 0.75,
       width: size.width * 0.7,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(60),
-            topRight: Radius.circular(60),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(60),
+          bottomLeft: Radius.circular(60),
+        ),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(-5, 10),
+            blurRadius: 15,
+            color: color.withOpacity(0.65),
           ),
-          boxShadow: [
-            BoxShadow(
-                offset: Offset(0, 10),
-                blurRadius: 60,
-                color: color.withOpacity(0.35))
-          ]),
+        ],
+      ),
       child: CachedNetworkImage(
         imageUrl: img,
         fit: BoxFit.cover,
         alignment: Alignment.topCenter,
+        imageBuilder: (context, imageProvider) => Container(
+          height: 100,
+          width: 100,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(60),
+              bottomLeft: Radius.circular(60),
+            ),
+            image: DecorationImage(
+              image: imageProvider,
+              fit: BoxFit.cover,
+            ),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0, 0),
+                blurRadius: 0,
+                color: color.withOpacity(.65),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
+/*
+child: CachedNetworkImage(
+        imageUrl: img,
+        fit: BoxFit.cover,
+        alignment: Alignment.topCenter,
+      ),
+ */
