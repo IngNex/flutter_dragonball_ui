@@ -22,11 +22,14 @@ class infoPersonagesContainer extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-              color: color.withOpacity(0.22),
-              offset: Offset(0, 5),
-              blurRadius: 22),
+              color: color.withOpacity(0.5),
+              offset: Offset(-3, 3),
+              blurRadius: 10),
           BoxShadow(
-              color: Colors.white, offset: Offset(-15, -15), blurRadius: 20)
+            color: Colors.white,
+            offset: Offset(10, -10),
+            blurRadius: 15,
+          ),
         ],
         borderRadius: BorderRadius.circular(20),
         color: Color(0xFFF9F8FD),
