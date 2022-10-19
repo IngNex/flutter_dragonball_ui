@@ -86,12 +86,12 @@ class _HomeState extends State<Home> {
                                     children: [
                                       /* ====== Img Fondo ===== */
                                       Positioned(
-                                        bottom: -10,
-                                        right: -20,
+                                        bottom: 0,
+                                        right: 0,
                                         child: Image.asset(
                                           getImage(species),
                                           height: 120,
-                                          color: Colors.white.withOpacity(.4),
+                                          color: Colors.white.withOpacity(.3),
                                           colorBlendMode: BlendMode.modulate,
                                         ),
                                       ),
@@ -272,12 +272,34 @@ class _HomeState extends State<Home> {
     if (species == 'Demonio') {
       colorImg = MaterialColors.pinkAccent3;
     }
+    if (species == 'Fusion') {
+      colorImg = MaterialColors.indigoAccent4;
+    }
+    if (species == 'Fantasma') {
+      colorImg = MaterialColors.lightBlueLighten3;
+    }
 
     return colorImg;
   }
 
   /* ============== Obtener Color de species ================ */
   String getImage(species) {
+    String imgSpecies = 'assets/images/esferas_dark.png';
+
+    if (species == 'Humano' ||
+        species == 'Hibrido' ||
+        species == 'Sayajin' ||
+        species == 'Fusion' ||
+        species == 'Nameku' ||
+        species == 'Kioshin') {
+      imgSpecies = 'assets/images/esferas.png';
+    }
+    return imgSpecies;
+  }
+}
+
+/*
+ String getImage(species) {
     String imgSpecies = 'assets/images/nave_namek.png';
 
     if (species == 'Humano' || species == 'Hibrido') {
@@ -292,4 +314,4 @@ class _HomeState extends State<Home> {
 
     return imgSpecies;
   }
-}
+*/
