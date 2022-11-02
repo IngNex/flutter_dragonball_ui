@@ -6,6 +6,7 @@ import 'package:flutter_dragonball/pages/home/components/SinConexion.dart';
 import 'package:flutter_dragonball/pages/home/components/imgRadar.dart';
 import 'package:flutter_dragonball/pages/home/components/imgTitleLogo.dart';
 import 'package:flutter_dragonball/pages/personage/personages_details.dart';
+import 'package:flutter_dragonball/utils/dimensions.dart';
 import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -54,9 +55,9 @@ class _HomeState extends State<Home> {
           ),*/
           dbzData.length != 0
               ? Positioned(
-                  top: 150,
+                  top: Dimensions.height150,
                   bottom: 0,
-                  width: width,
+                  width: Dimensions.screenWidth,
                   child: Column(
                     children: [
                       Expanded(
@@ -90,7 +91,7 @@ class _HomeState extends State<Home> {
                                         right: 0,
                                         child: Image.asset(
                                           getImage(species),
-                                          height: 120,
+                                          height: Dimensions.height120,
                                           color: Colors.white.withOpacity(.3),
                                           colorBlendMode: BlendMode.modulate,
                                         ),
@@ -100,8 +101,8 @@ class _HomeState extends State<Home> {
                                         bottom: 0,
                                         right: 0,
                                         child: Container(
-                                          width: 135,
-                                          height: 135,
+                                          width: Dimensions.width135,
+                                          height: Dimensions.height135,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(100),
@@ -118,8 +119,8 @@ class _HomeState extends State<Home> {
                                       ),
                                       /* ====== Name ===== */
                                       Positioned(
-                                        top: 10,
-                                        right: 12,
+                                        top: Dimensions.height10,
+                                        right: Dimensions.width12,
                                         child: Text(
                                           name.toString(),
                                           style: const TextStyle(
@@ -131,7 +132,7 @@ class _HomeState extends State<Home> {
                                       /* ====== Spaces ===== */
                                       Positioned(
                                         top: 40,
-                                        left: 12,
+                                        left: Dimensions.width12,
                                         child: Container(
                                           decoration: BoxDecoration(
                                               borderRadius:
@@ -163,8 +164,8 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Positioned(
-                                        bottom: 10,
-                                        left: 12,
+                                        bottom: Dimensions.height10,
+                                        left: Dimensions.width12,
                                         child: Container(
                                           decoration: BoxDecoration(
                                               borderRadius:
