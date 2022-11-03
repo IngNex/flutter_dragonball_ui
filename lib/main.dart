@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dragonball/pages/home/home.dart';
 import 'package:flutter_dragonball/pages/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: SplashScreen(),
     );
   }
 }

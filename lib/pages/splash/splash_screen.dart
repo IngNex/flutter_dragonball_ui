@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dragonball/pages/home/home.dart';
+import 'package:flutter_dragonball/utils/dimensions.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -28,14 +29,14 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Image(
             image: AssetImage("assets/logo/ingnex.png"),
-            width: 200,
+            width: Dimensions.width200,
           ),
           SizedBox(
-            height: 50,
+            height: Dimensions.height55,
           ),
           SpinKitPianoWave(
             color: Colors.red,
-            size: 50.0,
+            size: Dimensions.height55,
           ),
         ]),
       ),
