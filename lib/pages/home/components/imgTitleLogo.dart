@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dragonball/utils/dimensions.dart';
 
 class imgTituloLogo extends StatelessWidget {
   const imgTituloLogo({
@@ -8,11 +9,11 @@ class imgTituloLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 30,
-      left: 30,
+      top: Dimensions.height30,
+      left: Dimensions.width30,
       child: Image.asset(
         'assets/images/logo.png',
-        width: 250,
+        width: Dimensions.width250,
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dragonball/pages/personage/personages_details.dart';
+import 'package:flutter_dragonball/utils/dimensions.dart';
 
 class dataPersonageName extends StatelessWidget {
   const dataPersonageName({
@@ -14,7 +15,8 @@ class dataPersonageName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
+      padding: EdgeInsets.symmetric(
+          horizontal: Dimensions.width25, vertical: Dimensions.height10),
       child: Column(
         children: [
           Row(
@@ -27,14 +29,14 @@ class dataPersonageName extends StatelessWidget {
                       style: TextStyle(
                           color: color,
                           fontWeight: FontWeight.bold,
-                          fontSize: 30),
+                          fontSize: Dimensions.font30),
                     ),
                     TextSpan(
                       text: "raza: ${widget.personageDetail['species']}",
                       style: TextStyle(
                         color: color,
                         fontWeight: FontWeight.w500,
-                        fontSize: 18,
+                        fontSize: Dimensions.font18,
                       ),
                     ),
                   ],
@@ -48,7 +50,7 @@ class dataPersonageName extends StatelessWidget {
             ],
           ),
           Container(
-            height: 58,
+            height: Dimensions.height58,
             child: Center(
               child: Text(
                 'Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos',

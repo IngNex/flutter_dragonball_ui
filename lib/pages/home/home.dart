@@ -101,19 +101,17 @@ class _HomeState extends State<Home> {
                                         bottom: 0,
                                         right: 0,
                                         child: Container(
-                                          width: Dimensions.width135,
+                                          width: Dimensions.height135,
                                           height: Dimensions.height135,
                                           decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(100),
+                                            borderRadius: BorderRadius.circular(
+                                                Dimensions.radius100),
                                           ),
                                           child: ClipOval(
-                                            child: img.toString().length == 0
-                                                ? SinConexion()
-                                                : CachedNetworkImage(
-                                                    imageUrl: img,
-                                                    fit: BoxFit.cover,
-                                                  ),
+                                            child: CachedNetworkImage(
+                                              imageUrl: img,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -123,15 +121,15 @@ class _HomeState extends State<Home> {
                                         right: Dimensions.width12,
                                         child: Text(
                                           name.toString(),
-                                          style: const TextStyle(
+                                          style: TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18),
+                                              fontSize: Dimensions.font18),
                                         ),
                                       ),
                                       /* ====== Spaces ===== */
                                       Positioned(
-                                        top: 40,
+                                        top: Dimensions.height40,
                                         left: Dimensions.width12,
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -149,20 +147,22 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               species,
                                               style: TextStyle(
-                                                  fontSize: 12,
+                                                  fontSize: Dimensions.font12,
                                                   color: Colors.white),
                                             ),
                                           ),
                                         ),
                                       ),
-                                      const Positioned(
-                                        bottom: 35,
-                                        left: 18,
+                                      Positioned(
+                                        bottom: Dimensions.height35,
+                                        left: Dimensions.width18,
                                         child: Text(
                                           "Saga:",
-                                          style: TextStyle(fontSize: 13),
+                                          style: TextStyle(
+                                              fontSize: Dimensions.font13),
                                         ),
                                       ),
+                                      /* == Saga == */
                                       Positioned(
                                         bottom: Dimensions.height10,
                                         left: Dimensions.width12,
@@ -182,7 +182,7 @@ class _HomeState extends State<Home> {
                                             child: Text(
                                               saga,
                                               style: TextStyle(
-                                                  fontSize: 12,
+                                                  fontSize: Dimensions.font12,
                                                   color: Colors.black),
                                             ),
                                           ),

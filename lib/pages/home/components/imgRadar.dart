@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dragonball/utils/dimensions.dart';
 
 class imgRadar extends StatelessWidget {
   const imgRadar({
@@ -9,10 +10,10 @@ class imgRadar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 0,
-      right: -50,
+      right: -Dimensions.width50,
       child: Image.asset(
         'assets/images/radar.png',
-        width: 140,
+        width: Dimensions.width140,
         color: Colors.white.withOpacity(.3),
         colorBlendMode: BlendMode.modulate,
       ),

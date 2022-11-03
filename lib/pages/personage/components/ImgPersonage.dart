@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dragonball/utils/dimensions.dart';
 
 class imgPersonage extends StatelessWidget {
   const imgPersonage({
@@ -13,14 +14,13 @@ class imgPersonage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.75,
-      width: size.width * 0.7,
+      height: Dimensions.screenHeight * 0.75,
+      width: Dimensions.screenWidth * 0.7,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(60),
-          bottomLeft: Radius.circular(60),
+          topLeft: Radius.circular(Dimensions.radius60),
+          bottomLeft: Radius.circular(Dimensions.radius60),
         ),
         boxShadow: [
           BoxShadow(
@@ -35,12 +35,12 @@ class imgPersonage extends StatelessWidget {
         fit: BoxFit.cover,
         alignment: Alignment.topCenter,
         imageBuilder: (context, imageProvider) => Container(
-          height: 100,
-          width: 100,
+          height: Dimensions.height100,
+          width: Dimensions.width100,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(60),
-              bottomLeft: Radius.circular(60),
+              topLeft: Radius.circular(Dimensions.radius60),
+              bottomLeft: Radius.circular(Dimensions.radius60),
             ),
             image: DecorationImage(
               image: imageProvider,

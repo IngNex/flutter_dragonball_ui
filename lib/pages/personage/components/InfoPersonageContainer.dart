@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dragonball/pages/personage/personages_details.dart';
+import 'package:flutter_dragonball/utils/dimensions.dart';
 
 class infoPersonagesContainer extends StatelessWidget {
   const infoPersonagesContainer({
@@ -15,10 +16,10 @@ class infoPersonagesContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: size.height * .02),
+      margin: EdgeInsets.symmetric(vertical: Dimensions.screenHeight * .02),
       padding: EdgeInsets.all(5),
-      height: 60,
-      width: 80,
+      height: Dimensions.height60,
+      width: Dimensions.width80,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -31,12 +32,13 @@ class infoPersonagesContainer extends StatelessWidget {
             blurRadius: 15,
           ),
         ],
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(Dimensions.radius20),
         color: Color(0xFFF9F8FD),
       ),
       child: Center(
         child: Text(
           '$species',
+          style: TextStyle(fontSize: Dimensions.font16),
         ),
       ),
     );

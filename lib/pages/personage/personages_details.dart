@@ -23,11 +23,6 @@ class PersonagesDetails extends StatefulWidget {
 class _PersonagesDetailsState extends State<PersonagesDetails> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    var species = widget.personageDetail['species'];
-    var saga = widget.personageDetail['saga'];
-    var img = widget.personageDetail['img'];
-    var name = widget.personageDetail['name'];
     var color = widget.color;
     return Scaffold(
       body: Column(children: [

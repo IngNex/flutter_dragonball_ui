@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dragonball/pages/personage/personages_details.dart';
+import 'package:flutter_dragonball/utils/dimensions.dart';
 
 class ButtonMore extends StatelessWidget {
   const ButtonMore({
@@ -13,18 +14,17 @@ class ButtonMore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Row(
       children: [
         SizedBox(
-          width: size.width / 2,
-          height: 55,
+          width: Dimensions.screenWidth / 2,
+          height: Dimensions.height55,
           child: TextButton(
             style: TextButton.styleFrom(
               backgroundColor: color,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(50),
+                  topRight: Radius.circular(Dimensions.radius50),
                 ),
               ),
               foregroundColor: Colors.white,
@@ -35,25 +35,27 @@ class ButtonMore extends StatelessWidget {
               children: [
                 Text(
                   'Saga: ',
-                  style: TextStyle(color: Colors.black, fontSize: 12),
+                  style: TextStyle(
+                      color: Colors.black, fontSize: Dimensions.font13),
                 ),
                 Text(
                   widget.personageDetail['saga'],
-                  style: TextStyle(color: Colors.white, fontSize: 24),
+                  style: TextStyle(
+                      color: Colors.white, fontSize: Dimensions.font24),
                 ),
               ],
             ),
           ),
         ),
         SizedBox(
-          width: size.width / 2,
-          height: 55,
+          width: Dimensions.screenWidth / 2,
+          height: Dimensions.height55,
           child: TextButton(
             style: TextButton.styleFrom(
               backgroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50),
+                  topLeft: Radius.circular(Dimensions.radius50),
                 ),
               ),
               foregroundColor: color,
@@ -64,11 +66,12 @@ class ButtonMore extends StatelessWidget {
               children: [
                 Text(
                   'Evo: ',
-                  style: TextStyle(color: Colors.black, fontSize: 12),
+                  style: TextStyle(
+                      color: Colors.black, fontSize: Dimensions.font13),
                 ),
                 Text(
                   widget.personageDetail['transformation'],
-                  style: TextStyle(color: color, fontSize: 24),
+                  style: TextStyle(color: color, fontSize: Dimensions.font24),
                 ),
               ],
             ),
