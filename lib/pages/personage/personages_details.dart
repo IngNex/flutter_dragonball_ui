@@ -28,10 +28,7 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
       body: Column(children: [
         Column(
           children: [
-            InfoImgPersonage(
-              color: color,
-              widget: widget,
-            ),
+            InfoImgPersonage(color: color, widget: widget),
             dataPersonageName(widget: widget, color: color),
             ButtonMore(color: color, widget: widget)
           ],
