@@ -13,7 +13,7 @@ class imgRadar extends StatelessWidget {
       right: -Dimensions.width50,
       child: Image.asset(
         'assets/images/radar.png',
-        width: Dimensions.width140,
+        width: Dimensions.width130,
         color: Colors.white.withOpacity(.3),
         colorBlendMode: BlendMode.modulate,
       ),

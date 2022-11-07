@@ -14,7 +14,6 @@ class infoPersonagesContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.symmetric(vertical: Dimensions.screenHeight * .02),
       padding: EdgeInsets.all(5),

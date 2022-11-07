@@ -16,7 +16,6 @@ class InfoImgPersonage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     var gender = widget.personageDetail['gender'];
     return Padding(
       padding: EdgeInsets.only(bottom: Dimensions.height10),

@@ -16,7 +16,7 @@ class dataPersonageName extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: Dimensions.width25, vertical: Dimensions.height10),
+          horizontal: Dimensions.width25, vertical: Dimensions.height12),
       child: Column(
         children: [
           Row(
@@ -45,18 +45,19 @@ class dataPersonageName extends StatelessWidget {
               Spacer(),
               Text(
                 "Planeta: ${widget.personageDetail['planet']}",
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style:
+                    TextStyle(color: Colors.black, fontSize: Dimensions.font20),
               ),
             ],
           ),
           Container(
-            height: Dimensions.height58,
+            height: Dimensions.height60,
             child: Center(
               child: Text(
                 'Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 12,
+                  fontSize: Dimensions.font12,
                   fontStyle: FontStyle.italic,
                 ),
                 textAlign: TextAlign.justify,
