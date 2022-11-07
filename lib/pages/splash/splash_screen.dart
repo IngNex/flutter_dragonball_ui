@@ -34,9 +34,9 @@ class _SplashScreenState extends State<SplashScreen> {
           SizedBox(
             height: Dimensions.height55,
           ),
-          SpinKitPianoWave(
+          SpinKitSpinningLines(
             color: Colors.red,
-            size: Dimensions.height55,
+            size: Dimensions.height60,
           ),
         ]),
       ),

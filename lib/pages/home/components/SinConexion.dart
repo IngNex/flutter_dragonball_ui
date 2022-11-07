@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dragonball/utils/dimensions.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SinConexion extends StatefulWidget {
   const SinConexion({
@@ -33,11 +35,26 @@ class _SinConexionState extends State<SinConexion>
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: CircularProgressIndicator(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SpinKitSpinningLines(
+            color: Colors.black,
+            size: Dimensions.height40,
+          ),
+          SizedBox(
+            height: Dimensions.height60,
+          ),
+          Text(
+            "Cargando...",
+            style: TextStyle(color: Colors.black, fontSize: Dimensions.font16),
+          )
+        ],
+      ), /*CircularProgressIndicator(
         value: controller.value,
         semanticsLabel: 'Connection failure',
         color: Colors.black,
-      ),
+      ),*/
     );
   }
 }
