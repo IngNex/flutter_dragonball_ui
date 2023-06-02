@@ -1,10 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dragonball/pages/personage/components/ButtonMore.dart';
 import 'package:flutter_dragonball/pages/personage/components/DataPersonageName.dart';
-import 'package:flutter_dragonball/pages/personage/components/ImgPersonage.dart';
 import 'package:flutter_dragonball/pages/personage/components/InfoImgPersonage.dart';
-import 'package:flutter_dragonball/pages/personage/components/InfoPersonageContainer.dart';
 
 class PersonagesDetails extends StatefulWidget {
   final personageDetail;
@@ -28,7 +25,8 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
       body: Column(children: [
         Column(
           children: [
-            InfoImgPersonage(color: color, widget: widget),
+            InfoImgPersonage(
+                color: color, widget: widget, index: widget.indexTag),
             dataPersonageName(widget: widget, color: color),
             ButtonMore(color: color, widget: widget)
           ],

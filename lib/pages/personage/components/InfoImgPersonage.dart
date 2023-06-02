@@ -1,16 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:flutter_dragonball/pages/personage/components/ImgPersonage.dart';
 import 'package:flutter_dragonball/pages/personage/components/InfoPersonageContainer.dart';
 import 'package:flutter_dragonball/pages/personage/personages_details.dart';
 import 'package:flutter_dragonball/utils/dimensions.dart';
 
 class InfoImgPersonage extends StatelessWidget {
-  const InfoImgPersonage({
+  InfoImgPersonage({
     Key? key,
+    required this.index,
     required this.color,
     required this.widget,
   }) : super(key: key);
 
+  final int index;
   final Color color;
   final PersonagesDetails widget;
 
@@ -56,7 +60,10 @@ class InfoImgPersonage extends StatelessWidget {
                 ),
               ),
             ),
-            imgPersonage(color: color, img: widget.personageDetail['img'])
+            Hero(
+                tag: index,
+                child: imgPersonage(
+                    color: color, img: widget.personageDetail['img']))
           ],
         ),
       ),

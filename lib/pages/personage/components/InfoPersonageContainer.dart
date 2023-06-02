@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dragonball/pages/personage/personages_details.dart';
 import 'package:flutter_dragonball/utils/dimensions.dart';
 
 class infoPersonagesContainer extends StatelessWidget {

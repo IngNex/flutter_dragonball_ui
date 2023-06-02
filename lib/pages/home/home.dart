@@ -104,10 +104,13 @@ class _HomeState extends State<Home> {
                                             borderRadius: BorderRadius.circular(
                                                 Dimensions.radius100),
                                           ),
-                                          child: ClipOval(
-                                            child: CachedNetworkImage(
-                                              imageUrl: img,
-                                              fit: BoxFit.cover,
+                                          child: Hero(
+                                            tag: index,
+                                            child: ClipOval(
+                                              child: CachedNetworkImage(
+                                                imageUrl: img,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           ),
                                         ),
