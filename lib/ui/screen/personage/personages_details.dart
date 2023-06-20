@@ -22,6 +22,7 @@ class _PersonagesDetailsState extends State<PersonagesDetails> {
   Widget build(BuildContext context) {
     var color = widget.color;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(children: [
         Column(
           children: [

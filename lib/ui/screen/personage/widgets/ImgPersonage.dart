@@ -24,9 +24,9 @@ class imgPersonage extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            offset: Offset(-5, 10),
-            blurRadius: 15,
-            color: color.withOpacity(0.65),
+            offset: const Offset(-2, 4),
+            blurRadius: 8,
+            color: color.withOpacity(0.7),
           ),
         ],
       ),

@@ -1,13 +1,11 @@
-import 'dart:convert';
-
+import 'package:flutter_dragonball/data/api/api.dart';
+import 'package:flutter_dragonball/domain/models/personage/personage_modal.dart';
 import 'package:flutter_dragonball/ui/utils/color/MaterialColor.dart';
 import 'package:flutter_dragonball/ui/screen/home/widgets/IdText.dart';
-import 'package:flutter_dragonball/ui/screen/home/widgets/SinConexion.dart';
 import 'package:flutter_dragonball/ui/screen/home/widgets/imgRadar.dart';
 import 'package:flutter_dragonball/ui/screen/home/widgets/imgTitleLogo.dart';
 import 'package:flutter_dragonball/ui/screen/personage/personages_details.dart';
 import 'package:flutter_dragonball/ui/utils/dimensions.dart';
-import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/material.dart';
@@ -20,17 +18,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  /* ================ Consumir Api ================= */
-  var DBZApi =
-      'https://raw.githubusercontent.com/IngNex/dragonball-api-sagas/master/dragonballz.json';
+  late Future<List<Personage>> futurePersonage;
 
-  List dbzData = [];
-
+  @override
   void initState() {
+    futurePersonage = Api.getPersonage(
+        'https://raw.githubusercontent.com/IngNex/dragonball-api-sagas/master/dragonballz.json');
     super.initState();
-    if (mounted) {
-      fetchDadronBallData();
-    }
   }
 
   @override
@@ -50,195 +44,213 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),*/
-          dbzData.length != 0
-              ? Positioned(
-                  top: Dimensions.height150,
-                  bottom: 0,
-                  width: Dimensions.screenWidth,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: GridView.builder(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2, childAspectRatio: 1.1),
-                          itemCount: dbzData.length,
-                          itemBuilder: (context, index) {
-                            var id = dbzData[index]['id'];
-                            var img = dbzData[index]['img'];
-                            var name = dbzData[index]['name'];
-                            var species = dbzData[index]['species'];
-                            var saga = dbzData[index]['saga'];
-                            return InkWell(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 10),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: getColor(species),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(10),
-                                    ),
-                                  ),
-                                  child: Stack(
-                                    children: [
-                                      /* ====== Img Fondo ===== */
-                                      Positioned(
-                                        bottom: 0,
-                                        right: 0,
-                                        child: Image.asset(
-                                          getImage(species),
-                                          height: Dimensions.height120,
-                                          color: Colors.white.withOpacity(.3),
-                                          colorBlendMode: BlendMode.modulate,
-                                        ),
+          Positioned(
+            top: Dimensions.height150,
+            bottom: 0,
+            width: Dimensions.screenWidth,
+            child: Column(
+              children: [
+                Expanded(
+                  child: FutureBuilder<List<Personage>>(
+                    future: futurePersonage,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        if (snapshot.data!.isEmpty) {
+                          return Center(child: Text('No data available'));
+                        } else {
+                          return GridView.builder(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2, childAspectRatio: 1.1),
+                            itemCount: snapshot.data!.length,
+                            itemBuilder: (context, index) {
+                              var id = snapshot.data![index].id;
+                              var img = snapshot.data![index].img;
+                              var name = snapshot.data![index].name;
+                              var species = snapshot.data![index].species;
+                              var saga = snapshot.data![index].saga;
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => PersonagesDetails(
+                                        personageDetail: snapshot.data![index],
+                                        color: getColor(species),
+                                        indexTag: index,
                                       ),
-                                      /* ====== IMG PERSONAGES ====== */
-                                      Positioned(
-                                        bottom: 0,
-                                        right: 0,
-                                        child: Container(
-                                          width: Dimensions.height135,
-                                          height: Dimensions.height135,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(
-                                                Dimensions.radius100),
+                                    ),
+                                  );
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 10),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: getColor(species),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(10),
+                                      ),
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        /* ====== Img Fondo ===== */
+                                        Positioned(
+                                          bottom: 0,
+                                          right: 0,
+                                          child: Image.asset(
+                                            getImage(species),
+                                            height: Dimensions.height120,
+                                            color: Colors.white.withOpacity(.3),
+                                            colorBlendMode: BlendMode.modulate,
                                           ),
-                                          child: Hero(
-                                            tag: index,
-                                            child: ClipOval(
-                                              child: CachedNetworkImage(
-                                                imageUrl: img,
-                                                fit: BoxFit.cover,
+                                        ),
+                                        /* ====== IMG PERSONAGES ====== */
+                                        Positioned(
+                                          bottom: 0,
+                                          right: 0,
+                                          child: Container(
+                                            width: Dimensions.height135,
+                                            height: Dimensions.height135,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      Dimensions.radius100),
+                                            ),
+                                            child: Hero(
+                                              tag: index,
+                                              child: ClipOval(
+                                                child: CachedNetworkImage(
+                                                  imageUrl: img,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      /* ====== Name ===== */
-                                      Positioned(
-                                        top: Dimensions.height10,
-                                        right: Dimensions.width12,
-                                        child: Text(
-                                          name.toString(),
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: Dimensions.font18),
+                                        /* ====== Name ===== */
+                                        Positioned(
+                                          top: Dimensions.height10,
+                                          right: Dimensions.width12,
+                                          child: Text(
+                                            name.toString(),
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: Dimensions.font18),
+                                          ),
                                         ),
-                                      ),
-                                      /* ====== Spaces ===== */
-                                      Positioned(
-                                        top: Dimensions.height40,
-                                        left: Dimensions.width12,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                      Radius.circular(20)),
-                                              color:
-                                                  Colors.black.withOpacity(.5)),
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 4,
-                                                bottom: 4,
-                                                right: 8,
-                                                left: 8),
-                                            child: Text(
-                                              species,
-                                              style: TextStyle(
-                                                  fontSize: Dimensions.font12,
-                                                  color: Colors.white),
+                                        /* ====== Spaces ===== */
+                                        Positioned(
+                                          top: Dimensions.height40,
+                                          left: Dimensions.width12,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                        Radius.circular(20)),
+                                                color: Colors.black
+                                                    .withOpacity(.5)),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 4,
+                                                  bottom: 4,
+                                                  right: 8,
+                                                  left: 8),
+                                              child: Text(
+                                                species,
+                                                style: TextStyle(
+                                                    fontSize: Dimensions.font12,
+                                                    color: Colors.white),
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      Positioned(
-                                        bottom: Dimensions.height35,
-                                        left: Dimensions.width18,
-                                        child: Text(
-                                          "Saga:",
-                                          style: TextStyle(
-                                              fontSize: Dimensions.font13),
+                                        Positioned(
+                                          bottom: Dimensions.height35,
+                                          left: Dimensions.width18,
+                                          child: Text(
+                                            "Saga:",
+                                            style: TextStyle(
+                                                fontSize: Dimensions.font13),
+                                          ),
                                         ),
-                                      ),
-                                      /* == Saga == */
-                                      Positioned(
-                                        bottom: Dimensions.height10,
-                                        left: Dimensions.width12,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                      Radius.circular(20)),
-                                              color:
-                                                  Colors.white.withOpacity(.5)),
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 4,
-                                                bottom: 4,
-                                                right: 8,
-                                                left: 8),
-                                            child: Text(
-                                              saga,
-                                              style: TextStyle(
-                                                  fontSize: Dimensions.font12,
-                                                  color: Colors.black),
+                                        /* == Saga == */
+                                        Positioned(
+                                          bottom: Dimensions.height10,
+                                          left: Dimensions.width12,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                        Radius.circular(20)),
+                                                color: Colors.white
+                                                    .withOpacity(.5)),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 4,
+                                                  bottom: 4,
+                                                  right: 8,
+                                                  left: 8),
+                                              child: Text(
+                                                saga,
+                                                style: TextStyle(
+                                                    fontSize: Dimensions.font12,
+                                                    color: Colors.black),
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      /* ====== Id ===== */
-                                      DetailDataPersonage(
-                                          textinfo: id.toString()),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => PersonagesDetails(
-                                      personageDetail: dbzData[index],
-                                      color: getColor(species),
-                                      indexTag: index,
+                                        /* ====== Id ===== */
+                                        DetailDataPersonage(
+                                            textinfo: id.toString()),
+                                      ],
                                     ),
                                   ),
-                                );
-                              },
-                            );
-                          },
-                        ),
-                      )
-                    ],
+                                ),
+                              );
+                            },
+                          );
+                        }
+                      } else if (snapshot.hasError) {
+                        return Center(child: Text('$snapshot.error'));
+                      } else {
+                        return Center(
+                          child: CircularProgressIndicator(
+                            color: Colors.amber,
+                          ),
+                        );
+                      }
+                    },
                   ),
-                )
-              : SinConexion(),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
   }
 
   /* ================== Get - API ==================== */
-  void fetchDadronBallData() async {
-    var url = Uri.https(
-        "raw.githubusercontent.com",
-        "/IngNex/dragonball-api-sagas/master/dragonballz.json",
-        {'q': '{http}'});
-    var response = await http.get(url);
+  // void fetchDadronBallData() async {
+  //   var url = Uri.https(
+  //       "raw.githubusercontent.com",
+  //       "/IngNex/dragonball-api-sagas/master/dragonballz.json",
+  //       {'q': '{http}'});
+  //   var response = await http.get(url);
 
-    if (response.statusCode == 200) {
-      var decodedJsonData = jsonDecode(response.body);
-      dbzData = decodedJsonData['personages'];
-      /*int i = 0;
-      while (i < 10) {
-        print('${dbzData[i]['name']}');
-        i++;
-      }*/
-      setState(() {});
-    }
-  }
+  //   if (response.statusCode == 200) {
+  //     var decodedJsonData = jsonDecode(response.body);
+  //     dbzData = decodedJsonData['personages'];
+  //     /*int i = 0;
+  //     while (i < 10) {
+  //       print('${dbzData[i]['name']}');
+  //       i++;
+  //     }*/
+  //     setState(() {});
+  //   }
+  // }
 
   /* ============== Obtener Color de species ================ */
   Color getColor(species) {
@@ -315,4 +327,8 @@ class _HomeState extends State<Home> {
 
     return imgSpecies;
   }
+*/
+
+/*
+
 */

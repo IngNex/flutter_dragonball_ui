@@ -14,6 +14,7 @@ class dataPersonageName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final personage = widget.personageDetail;
     return Padding(
       padding: EdgeInsets.symmetric(
           horizontal: Dimensions.width25, vertical: Dimensions.height12),
@@ -25,14 +26,14 @@ class dataPersonageName extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: "${widget.personageDetail['name']}\n",
+                      text: "${personage.name}\n",
                       style: TextStyle(
                           color: color,
                           fontWeight: FontWeight.bold,
                           fontSize: Dimensions.font30),
                     ),
                     TextSpan(
-                      text: "raza: ${widget.personageDetail['species']}",
+                      text: "raza: ${personage.species}",
                       style: TextStyle(
                         color: color,
                         fontWeight: FontWeight.w500,
@@ -44,7 +45,7 @@ class dataPersonageName extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                "Planeta: ${widget.personageDetail['planet']}",
+                "Planeta: ${personage.planet}",
                 style:
                     TextStyle(color: Colors.black, fontSize: Dimensions.font20),
               ),
@@ -54,7 +55,9 @@ class dataPersonageName extends StatelessWidget {
             height: Dimensions.height60,
             child: Center(
               child: Text(
-                'Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos Goku es un sayajin criado en la tierra y a tenido muchos combates con seres poderosos',
+                'Dragon Ball Z se centra en la vida adulta de Son Goku, quien tendrá que defender la tierra de los numerosos villanos que amenazan con destruirla. Además, la serie trama de forma paralela la madurez de su hijo Gohan. La producción destaca por tener un tono más serio que su predecesora.Dragon Ball Z se centra en la vida adulta de Son Goku, quien tendrá que defender la tierra de los numerosos villanos que amenazan con destruirla. Además, la serie trama de forma paralela la madurez de su hijo Gohan. La producción destaca por tener un tono más serio que su predecesora.',
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: Dimensions.font12,

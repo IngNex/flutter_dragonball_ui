@@ -20,7 +20,7 @@ class InfoImgPersonage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var gender = widget.personageDetail['gender'];
+    var personage = widget.personageDetail;
     return Padding(
       padding: EdgeInsets.only(bottom: Dimensions.height10),
       child: SizedBox(
@@ -38,32 +38,36 @@ class InfoImgPersonage extends StatelessWidget {
                       child: IconButton(
                         padding: EdgeInsets.symmetric(
                             horizontal: Dimensions.width20),
-                        icon: Icon(Icons.arrow_back),
+                        icon: const Icon(Icons.arrow_back),
                         onPressed: () {
                           Navigator.pop(context);
                         },
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     infoPersonagesContainer(
                         color: color,
-                        species: "Poder:\n${widget.personageDetail['power']}"),
+                        title: "Power:",
+                        species: personage.power),
                     infoPersonagesContainer(
                         color: color,
-                        species:
-                            "Altura:\n${widget.personageDetail['height']}"),
+                        title: "Height:",
+                        species: personage.height),
                     infoPersonagesContainer(
                         color: color,
-                        species: "Peso:\n${widget.personageDetail['weight']}"),
-                    infoPersonagesContainer(color: color, species: gender),
+                        title: "Weight:",
+                        species: personage.weight),
+                    infoPersonagesContainer(
+                        color: color,
+                        title: "Gender:",
+                        species: personage.gender),
                   ],
                 ),
               ),
             ),
             Hero(
                 tag: index,
-                child: imgPersonage(
-                    color: color, img: widget.personageDetail['img']))
+                child: imgPersonage(color: color, img: personage.img))
           ],
         ),
       ),

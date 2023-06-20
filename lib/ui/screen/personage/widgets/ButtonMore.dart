@@ -14,6 +14,7 @@ class ButtonMore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final personage = widget.personageDetail;
     return Row(
       children: [
         SizedBox(
@@ -39,9 +40,9 @@ class ButtonMore extends StatelessWidget {
                       color: Colors.black, fontSize: Dimensions.font13),
                 ),
                 Text(
-                  widget.personageDetail['saga'],
+                  personage.saga,
                   style: TextStyle(
-                      color: Colors.white, fontSize: Dimensions.font24),
+                      color: Colors.white, fontSize: Dimensions.font20),
                 ),
               ],
             ),
@@ -70,8 +71,8 @@ class ButtonMore extends StatelessWidget {
                       color: Colors.black, fontSize: Dimensions.font13),
                 ),
                 Text(
-                  widget.personageDetail['transformation'],
-                  style: TextStyle(color: color, fontSize: Dimensions.font24),
+                  personage.transformation,
+                  style: TextStyle(color: color, fontSize: Dimensions.font20),
                 ),
               ],
             ),
