@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dragonball/utils/dimensions.dart';
+import 'package:flutter_dragonball/ui/utils/dimensions.dart';
 
 class imgTituloLogo extends StatelessWidget {
   const imgTituloLogo({

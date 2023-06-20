@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:flutter_dragonball/pages/personage/components/ImgPersonage.dart';
-import 'package:flutter_dragonball/pages/personage/components/InfoPersonageContainer.dart';
-import 'package:flutter_dragonball/pages/personage/personages_details.dart';
-import 'package:flutter_dragonball/utils/dimensions.dart';
+import 'package:flutter_dragonball/ui/screen/personage/widgets/ImgPersonage.dart';
+import 'package:flutter_dragonball/ui/screen/personage/widgets/InfoPersonageContainer.dart';
+import 'package:flutter_dragonball/ui/screen/personage/personages_details.dart';
+import 'package:flutter_dragonball/ui/utils/dimensions.dart';
 
 class InfoImgPersonage extends StatelessWidget {
   InfoImgPersonage({

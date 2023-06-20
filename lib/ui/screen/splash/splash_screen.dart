@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dragonball/pages/home/home.dart';
-import 'package:flutter_dragonball/utils/dimensions.dart';
+import 'package:flutter_dragonball/ui/screen/home/home.dart';
+import 'package:flutter_dragonball/ui/utils/dimensions.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 

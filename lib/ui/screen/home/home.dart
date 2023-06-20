@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:flutter_dragonball/color/MaterialColor.dart';
-import 'package:flutter_dragonball/pages/home/components/IdText.dart';
-import 'package:flutter_dragonball/pages/home/components/SinConexion.dart';
-import 'package:flutter_dragonball/pages/home/components/imgRadar.dart';
-import 'package:flutter_dragonball/pages/home/components/imgTitleLogo.dart';
-import 'package:flutter_dragonball/pages/personage/personages_details.dart';
-import 'package:flutter_dragonball/utils/dimensions.dart';
+import 'package:flutter_dragonball/ui/utils/color/MaterialColor.dart';
+import 'package:flutter_dragonball/ui/screen/home/widgets/IdText.dart';
+import 'package:flutter_dragonball/ui/screen/home/widgets/SinConexion.dart';
+import 'package:flutter_dragonball/ui/screen/home/widgets/imgRadar.dart';
+import 'package:flutter_dragonball/ui/screen/home/widgets/imgTitleLogo.dart';
+import 'package:flutter_dragonball/ui/screen/personage/personages_details.dart';
+import 'package:flutter_dragonball/ui/utils/dimensions.dart';
 import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
 

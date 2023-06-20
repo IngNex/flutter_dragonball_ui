@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dragonball/pages/splash/splash_screen.dart';
+import 'package:flutter_dragonball/ui/screen/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
 void main() {

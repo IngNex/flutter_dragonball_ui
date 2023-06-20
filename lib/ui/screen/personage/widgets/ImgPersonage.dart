@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dragonball/utils/dimensions.dart';
+import 'package:flutter_dragonball/ui/utils/dimensions.dart';
 
 class imgPersonage extends StatelessWidget {
   const imgPersonage({

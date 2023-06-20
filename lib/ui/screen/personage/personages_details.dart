@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dragonball/pages/personage/components/ButtonMore.dart';
-import 'package:flutter_dragonball/pages/personage/components/DataPersonageName.dart';
-import 'package:flutter_dragonball/pages/personage/components/InfoImgPersonage.dart';
+import 'package:flutter_dragonball/ui/screen/personage/widgets/ButtonMore.dart';
+import 'package:flutter_dragonball/ui/screen/personage/widgets/DataPersonageName.dart';
+import 'package:flutter_dragonball/ui/screen/personage/widgets/InfoImgPersonage.dart';
 
 class PersonagesDetails extends StatefulWidget {
   final personageDetail;
